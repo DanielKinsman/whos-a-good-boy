@@ -1,0 +1,22 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json
+
+# add on binaries
+addons/godot-jolt/android
+addons/godot-jolt/ios
+addons/godot-jolt/linux
+addons/godot-jolt/macos
+addons/godot-jolt/windows

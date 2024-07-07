@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://8rcjayksb7ak"]
+
+[ext_resource type="PackedScene" uid="uid://cxqrr03hnsrb2" path="res://game_scene_base.tscn" id="1_son0m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_np36m"]
+size = Vector3(1000, 10, 1000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2lje"]
+size = Vector3(1000, 10, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bl4a8"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c6e6a"]
+size = Vector3(1, 2, 1)
+
+[node name="TestScene" instance=ExtResource("1_son0m")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_np36m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" index="1"]
+mesh = SubResource("BoxMesh_h2lje")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39366, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
+shape = SubResource("BoxShape3D_bl4a8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" index="1"]
+mesh = SubResource("BoxMesh_c6e6a")
