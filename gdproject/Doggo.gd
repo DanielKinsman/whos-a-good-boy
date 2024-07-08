@@ -4,9 +4,13 @@ extends CharacterBody3D
 const JUMP_VELOCITY := 4.5
 const FRICTION := 5.0
 const ACCELERATION := 20.0
+const VELOCITY_TURNFACING_THRESHOLD := 1.0**2
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+@onready var dolly: CollisionShape3D = $CollisionShape3D
+@onready var dolly_original_xform := Transform3D(dolly.transform)
 
 
 func _physics_process(delta: float) -> void:
@@ -28,3 +32,9 @@ func _physics_process(delta: float) -> void:
         velocity += direction * ACCELERATION * delta
 
     move_and_slide()
+    if velocity.length_squared() > VELOCITY_TURNFACING_THRESHOLD:
+        dolly.look_at(self.global_position + velocity)
+        dolly.transform *= dolly_original_xform
+        # TODO make it more natural when quick changes of direction (lerp)
+    # else look at camera (slowly)
+    # TODO after landing, lie flat even if not moving in xz
