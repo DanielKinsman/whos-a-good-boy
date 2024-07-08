@@ -2,6 +2,9 @@ class_name Doggo
 extends CharacterBody3D
 
 
+signal has_picked_up(what: XRToolsPickable)
+
+
 const JUMP_VELOCITY := 4.5
 const FRICTION := 5.0
 const ACCELERATION := 20.0
@@ -12,6 +15,11 @@ const TARGET_THRESHOLD := 0.5**2
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var target: Node3D = null
+@onready var mouth_snap_zone: XRToolsSnapZone = $SnapZone
+
+
+func _ready() -> void:
+    mouth_snap_zone.has_picked_up.connect(self.picked_up)
 
 
 func _physics_process(delta: float) -> void:
@@ -47,3 +55,7 @@ func _physics_process(delta: float) -> void:
         # TODO make it more natural when quick changes of direction (lerp)
     # else look at camera (slowly)
     # TODO after landing, lie flat even if not moving in xz
+
+
+func picked_up(pickable: XRToolsPickable) -> void:
+    self.has_picked_up.emit(pickable)

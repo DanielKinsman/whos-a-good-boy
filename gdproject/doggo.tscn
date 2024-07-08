@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=6 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hb11"]
 radius = 0.125
@@ -28,3 +29,7 @@ mesh = SubResource("CapsuleMesh_17i6u")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.233321, -0.145355)
 mesh = SubResource("SphereMesh_w5s40")
 skeleton = NodePath("../..")
+
+[node name="SnapZone" parent="." instance=ExtResource("2_ghrbo")]
+transform = Transform3D(-0.0309397, -0.999521, 0, 0.999521, -0.0309397, 0, 0, 0, 1, 0, 0.140711, -0.334617)
+snap_mode = 1

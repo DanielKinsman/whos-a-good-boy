@@ -1,27 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxqrr03hnsrb2"]
+[gd_scene load_steps=13 format=3 uid="uid://cxqrr03hnsrb2"]
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_2fsc6"]
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_w5anf"]
-[ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="3_h031o"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4_56n87"]
 [ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="5_rcy6e"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_stnsb"]
 [ext_resource type="PackedScene" uid="uid://bsruoqtb6cvp5" path="res://wrist_ui.tscn" id="6_2t3fy"]
-[ext_resource type="PackedScene" uid="uid://kcqomcjq52np" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_hand.tscn" id="6_jn8iq"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="7_we6au"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_3b6xx"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="8_j7d1k"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="8_rhang"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="10_0a2lu"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="11_4bnpw"]
 
 [node name="GameSceneBase" instance=ExtResource("1_2fsc6")]
 
 [node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_w5anf")]
+collision_mask = 327707
 
-[node name="LeftPhysicsHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("3_h031o")]
-
-[node name="MovementDirect" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" instance=ExtResource("4_56n87")]
-strafe = true
-
-[node name="Viewport2Din3D" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" instance=ExtResource("5_stnsb")]
+[node name="Viewport2Din3D" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("5_stnsb")]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.0301059, -0.0422168, 0.229782)
 screen_size = Vector2(0.1, 0.067)
 collision_layer = 5242880
@@ -31,21 +28,32 @@ transparent = 0
 unshaded = true
 scene_properties_keys = PackedStringArray("wrist_ui.gd")
 
-[node name="FunctionPointer2" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="4" instance=ExtResource("10_0a2lu")]
+[node name="MovementDirect" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" instance=ExtResource("4_56n87")]
+strafe = true
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" instance=ExtResource("10_0a2lu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 show_laser = 2
 laser_length = 1
 target_radius = 0.001
 
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="4" instance=ExtResource("8_rhang")]
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="5" instance=ExtResource("8_j7d1k")]
+
 [node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("5_rcy6e")]
+collision_mask = 327707
 
-[node name="RightPhysicsHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("6_jn8iq")]
+[node name="MovementTurn" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("7_we6au")]
 
-[node name="MovementTurn" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("7_we6au")]
-
-[node name="FunctionPointer" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" instance=ExtResource("10_0a2lu")]
+[node name="FunctionPointer" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("10_0a2lu")]
 show_laser = 2
 laser_length = 1
 target_radius = 0.001
 
+[node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" instance=ExtResource("8_rhang")]
+
+[node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="4" instance=ExtResource("11_4bnpw")]
+
 [node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("8_3b6xx")]
+player_calibrate_height = false

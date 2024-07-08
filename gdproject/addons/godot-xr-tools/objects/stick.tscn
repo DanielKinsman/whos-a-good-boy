@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqnfjkusrkly"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_3wkaq"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_qdrj8"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_tps17"]
+[ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="4_20c2n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2lck2"]
+size = Vector3(0.05, 0.5, 0.05)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o1npm"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.5
+radial_segments = 6
+rings = 1
+
+[node name="Stick" instance=ExtResource("1_3wkaq")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_2lck2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" index="0"]
+mesh = SubResource("CylinderMesh_o1npm")
+skeleton = NodePath("")
+
+[node name="GrabPointHandLeft" parent="." index="1" instance=ExtResource("2_qdrj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0811022, -0.0826379)
+visible = true
+
+[node name="GrabPointHandRight" parent="." index="2" instance=ExtResource("3_tps17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0811022, -0.0826379)
+visible = true
+
+[node name="GrabPointSnap" parent="." index="3" instance=ExtResource("4_20c2n")]
