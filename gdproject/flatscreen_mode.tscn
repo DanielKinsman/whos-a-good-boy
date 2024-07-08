@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnk5xp0bll4kd"]
+
+[ext_resource type="PackedScene" uid="uid://6i36o8ipfx1v" path="res://test_environment.tscn" id="1_0vje6"]
+
+[node name="FlatscreenMode" type="Node3D"]
+
+[node name="TestEnvironment" parent="." instance=ExtResource("1_0vje6")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.885785, 2.91179)

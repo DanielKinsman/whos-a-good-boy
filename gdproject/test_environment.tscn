@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://6i36o8ipfx1v"]
+
+[ext_resource type="PackedScene" uid="uid://b663n5fdhxdq6" path="res://doggo.tscn" id="1_7dki7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tuoak"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jda3a"]
+sky_material = SubResource("ProceduralSkyMaterial_tuoak")
+
+[sub_resource type="Environment" id="Environment_imx1a"]
+background_mode = 2
+sky = SubResource("Sky_jda3a")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_np36m"]
+size = Vector3(1000, 10, 1000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2lje"]
+size = Vector3(1000, 10, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bl4a8"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c6e6a"]
+size = Vector3(1, 2, 1)
+
+[node name="TestEnvironment" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_imx1a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_np36m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_h2lje")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39366, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_bl4a8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_c6e6a")
+
+[node name="Doggo" parent="." instance=ExtResource("1_7dki7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175351, 0)

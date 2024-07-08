@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b663n5fdhxdq6"]
+
+[ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hb11"]
+radius = 0.125
+height = 0.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_17i6u"]
+radius = 0.125
+height = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_w5s40"]
+radius = 0.1
+height = 0.2
+
+[node name="Doggo" type="CharacterBody3D"]
+script = ExtResource("1_xjc8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_0hb11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_17i6u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145355, -0.233321)
+mesh = SubResource("SphereMesh_w5s40")
