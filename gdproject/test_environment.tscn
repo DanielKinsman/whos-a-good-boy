@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://6i36o8ipfx1v"]
+[gd_scene load_steps=12 format=3 uid="uid://6i36o8ipfx1v"]
 
 [ext_resource type="PackedScene" uid="uid://b663n5fdhxdq6" path="res://doggo.tscn" id="1_7dki7"]
+[ext_resource type="Script" path="res://test_environment.gd" id="1_sc2j5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tuoak"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,7 +28,19 @@ size = Vector3(1, 2, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_c6e6a"]
 size = Vector3(1, 2, 1)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h7qbq"]
+height = 0.5
+radius = 0.025
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eusbm"]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.5
+radial_segments = 6
+rings = 1
+
 [node name="TestEnvironment" type="Node3D"]
+script = ExtResource("1_sc2j5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -56,3 +69,13 @@ mesh = SubResource("BoxMesh_c6e6a")
 
 [node name="Doggo" parent="." instance=ExtResource("1_7dki7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175351, 0)
+
+[node name="Stick" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.92688, -3.76119)
+linear_velocity = Vector3(2, 4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stick"]
+shape = SubResource("CylinderShape3D_h7qbq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Stick/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_eusbm")
