@@ -1,0 +1,26 @@
+[gd_resource type="BehaviorTree" load_steps=7 format=3 uid="uid://cbcval5mrgh05"]
+
+[ext_resource type="Script" path="res://ai/tasks/set_blackboard_node_from_path.gd" id="1_5r6fh"]
+[ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_porc0"]
+var/move_target/name = &"move_target"
+var/move_target/type = 24
+var/move_target/hint = 0
+var/move_target/hint_string = ""
+
+[sub_resource type="BTAction" id="BTAction_kjjhe"]
+script = ExtResource("1_5r6fh")
+node_path = NodePath("Stick")
+output_var = &"move_target"
+
+[sub_resource type="BTAction" id="BTAction_wpcne"]
+script = ExtResource("1_eokfh")
+move_target_var = &"move_target"
+
+[sub_resource type="BTSequence" id="BTSequence_cci1e"]
+children = [SubResource("BTAction_kjjhe"), SubResource("BTAction_wpcne")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_porc0")
+root_task = SubResource("BTSequence_cci1e")

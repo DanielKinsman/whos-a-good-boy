@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://6i36o8ipfx1v"]
+[gd_scene load_steps=13 format=3 uid="uid://6i36o8ipfx1v"]
 
 [ext_resource type="PackedScene" uid="uid://b663n5fdhxdq6" path="res://doggo.tscn" id="1_7dki7"]
 [ext_resource type="Script" path="res://test_environment.gd" id="1_sc2j5"]
 [ext_resource type="PackedScene" uid="uid://cqnfjkusrkly" path="res://stick.tscn" id="3_57ecf"]
+[ext_resource type="BehaviorTree" uid="uid://cbcval5mrgh05" path="res://ai/trees/behavior_tree.tres" id="4_m3s4m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tuoak"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,6 +29,8 @@ size = Vector3(1, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_c6e6a"]
 size = Vector3(1, 2, 1)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_3e33n"]
 
 [node name="TestEnvironment" type="Node3D"]
 script = ExtResource("1_sc2j5")
@@ -64,3 +67,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175351, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97411, -2.8747)
 
 [node name="PickupReturn" type="Node3D" parent="."]
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("4_m3s4m")
+blackboard_plan = SubResource("BlackboardPlan_3e33n")

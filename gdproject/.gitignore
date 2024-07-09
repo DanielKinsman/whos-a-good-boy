@@ -20,3 +20,5 @@ addons/godot-jolt/ios
 addons/godot-jolt/linux
 addons/godot-jolt/macos
 addons/godot-jolt/windows
+addons/limboai/bin
+addons/limboai/icons
