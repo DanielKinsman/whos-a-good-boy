@@ -1,25 +1,35 @@
-[gd_resource type="BehaviorTree" load_steps=7 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=14 format=3 uid="uid://cbcval5mrgh05"]
 
-[ext_resource type="Script" path="res://ai/tasks/set_blackboard_node_from_path.gd" id="1_5r6fh"]
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
+[ext_resource type="Script" path="res://ai/tasks/move_target_thrown_object.gd" id="1_xly74"]
+[ext_resource type="Script" path="res://ai/tasks/move_target_follow_human.gd" id="3_b1u84"]
+[ext_resource type="Script" path="res://ai/tasks/drop_held_object.gd" id="4_5y1qy"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_porc0"]
-var/move_target/name = &"move_target"
-var/move_target/type = 24
-var/move_target/hint = 0
-var/move_target/hint_string = ""
 
-[sub_resource type="BTAction" id="BTAction_kjjhe"]
-script = ExtResource("1_5r6fh")
-node_path = NodePath("Stick")
-output_var = &"move_target"
+[sub_resource type="BTAction" id="BTAction_yo603"]
+script = ExtResource("1_xly74")
 
 [sub_resource type="BTAction" id="BTAction_wpcne"]
 script = ExtResource("1_eokfh")
-move_target_var = &"move_target"
+
+[sub_resource type="BTComment" id="BTComment_ucl3f"]
+custom_name = "TODO pick up action"
+
+[sub_resource type="BTAction" id="BTAction_n7cm5"]
+script = ExtResource("3_b1u84")
+
+[sub_resource type="BTAction" id="BTAction_djlv8"]
+script = ExtResource("1_eokfh")
+
+[sub_resource type="BTAction" id="BTAction_nukqj"]
+script = ExtResource("4_5y1qy")
+
+[sub_resource type="BTSequence" id="BTSequence_a6iiw"]
+children = [SubResource("BTAction_yo603"), SubResource("BTAction_wpcne"), SubResource("BTComment_ucl3f"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_nukqj")]
 
 [sub_resource type="BTSequence" id="BTSequence_cci1e"]
-children = [SubResource("BTAction_kjjhe"), SubResource("BTAction_wpcne")]
+children = [SubResource("BTSequence_a6iiw")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_porc0")

@@ -15,6 +15,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var walk_backwards := false
 
 
+@onready var move_target: Node3D = null
 @onready var orient_target: Node3D = null
 @onready var look_target: Node3D = null
 
@@ -56,8 +57,8 @@ func orient() -> void:
     if velocity.length_squared() < VELOCITY_TURNFACING_THRESHOLD:
         return
 
-    var look_at := Vector3(velocity)
+    var look := Vector3(velocity)
     if self.global_position.y < 0.5:  # TODO hax assumes floor is at 0y
-        look_at.y = 0.0
-        self.look_at(self.global_position + look_at)
+        look.y = 0.0
+        self.look_at(self.global_position + look)
         # TODO make it more natural when quick changes of direction (lerp)
