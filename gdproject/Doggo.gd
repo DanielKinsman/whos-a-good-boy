@@ -25,6 +25,7 @@ var walk_backwards := false
 func _ready() -> void:
     mouth_snap_zone.has_picked_up.connect(self.picked_up)
     mouth_snap_zone.has_dropped.connect(self.dropped)
+    mouth_snap_zone.enabled = false
 
 
 func _physics_process(delta: float) -> void:

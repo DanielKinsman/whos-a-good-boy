@@ -1,27 +1,43 @@
-[gd_resource type="BehaviorTree" load_steps=16 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=22 format=3 uid="uid://cbcval5mrgh05"]
 
+[ext_resource type="Script" path="res://ai/tasks/move_target_follow_human_held_object.gd" id="1_3iueq"]
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
 [ext_resource type="Script" path="res://ai/tasks/move_target_thrown_object.gd" id="1_xly74"]
+[ext_resource type="Script" path="res://ai/tasks/kite.gd" id="2_bf7do"]
 [ext_resource type="Script" path="res://ai/tasks/move_target_follow_human.gd" id="3_b1u84"]
 [ext_resource type="Script" path="res://ai/tasks/drop_held_object.gd" id="4_5y1qy"]
 [ext_resource type="Script" path="res://ai/tasks/wait_till_stationary.gd" id="4_cs5md"]
+[ext_resource type="Script" path="res://ai/tasks/pickup_object.gd" id="4_q5in7"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_porc0"]
+
+[sub_resource type="BTAction" id="BTAction_mfio2"]
+script = ExtResource("1_3iueq")
+
+[sub_resource type="BTAction" id="BTAction_fp5tn"]
+script = ExtResource("2_bf7do")
+min_distance = 2.0
+max_distance = 4
+
+[sub_resource type="BTSequence" id="BTSequence_l52av"]
+children = [SubResource("BTAction_mfio2"), SubResource("BTAction_fp5tn")]
 
 [sub_resource type="BTAction" id="BTAction_yo603"]
 script = ExtResource("1_xly74")
 
 [sub_resource type="BTAction" id="BTAction_wpcne"]
 script = ExtResource("1_eokfh")
+tolerance = 0.25
 
-[sub_resource type="BTComment" id="BTComment_ucl3f"]
-custom_name = "TODO pick up action"
+[sub_resource type="BTAction" id="BTAction_7j5r6"]
+script = ExtResource("4_q5in7")
 
 [sub_resource type="BTAction" id="BTAction_n7cm5"]
 script = ExtResource("3_b1u84")
 
 [sub_resource type="BTAction" id="BTAction_djlv8"]
 script = ExtResource("1_eokfh")
+tolerance = 2.0
 
 [sub_resource type="BTAction" id="BTAction_ap4jl"]
 script = ExtResource("4_cs5md")
@@ -30,11 +46,11 @@ script = ExtResource("4_cs5md")
 script = ExtResource("4_5y1qy")
 
 [sub_resource type="BTSequence" id="BTSequence_a6iiw"]
-children = [SubResource("BTAction_yo603"), SubResource("BTAction_wpcne"), SubResource("BTComment_ucl3f"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_ap4jl"), SubResource("BTAction_nukqj")]
+children = [SubResource("BTAction_yo603"), SubResource("BTAction_wpcne"), SubResource("BTAction_7j5r6"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_ap4jl"), SubResource("BTAction_nukqj")]
 
-[sub_resource type="BTSequence" id="BTSequence_cci1e"]
-children = [SubResource("BTSequence_a6iiw")]
+[sub_resource type="BTSelector" id="BTSelector_rwknl"]
+children = [SubResource("BTSequence_l52av"), SubResource("BTSequence_a6iiw")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_porc0")
-root_task = SubResource("BTSequence_cci1e")
+root_task = SubResource("BTSelector_rwknl")

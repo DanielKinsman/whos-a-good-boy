@@ -11,5 +11,8 @@ func _enter() -> void:
 
 
 func _tick(_delta: float) -> Status:
-    dog.move_target = ag.get_camera()
+    if not is_instance_valid(ag.held_object):
+        return FAILURE
+
+    dog.move_target = ag.held_object
     return SUCCESS
