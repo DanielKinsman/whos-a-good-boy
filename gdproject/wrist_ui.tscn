@@ -2,23 +2,40 @@
 
 [ext_resource type="Script" path="res://wrist_ui.gd" id="1_jcibm"]
 
-[node name="WristUI" type="CenterContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -26.5
-offset_right = 23.0
-offset_bottom = 26.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="WristUI" type="MarginContainer"]
+offset_right = 300.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_jcibm")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="GContainer" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/v_separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GContainer"]
 layout_mode = 2
 
-[node name="QuitButton" type="Button" parent="HBoxContainer"]
+[node name="CheckButton" type="CheckButton" parent="GContainer/HBoxContainer"]
 layout_mode = 2
+
+[node name="HeightLabel" type="Label" parent="GContainer/HBoxContainer"]
+layout_mode = 2
+text = "Override player height
+"
+
+[node name="HeightSlider" type="HSlider" parent="GContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 2.5
+step = 0.05
+value = 1.0
+editable = false
+
+[node name="HSeparator" type="HSeparator" parent="GContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="GContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Exit game"
