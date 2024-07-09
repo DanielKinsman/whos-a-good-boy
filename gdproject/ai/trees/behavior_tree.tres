@@ -1,9 +1,10 @@
-[gd_resource type="BehaviorTree" load_steps=14 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=16 format=3 uid="uid://cbcval5mrgh05"]
 
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
 [ext_resource type="Script" path="res://ai/tasks/move_target_thrown_object.gd" id="1_xly74"]
 [ext_resource type="Script" path="res://ai/tasks/move_target_follow_human.gd" id="3_b1u84"]
 [ext_resource type="Script" path="res://ai/tasks/drop_held_object.gd" id="4_5y1qy"]
+[ext_resource type="Script" path="res://ai/tasks/wait_till_stationary.gd" id="4_cs5md"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_porc0"]
 
@@ -22,11 +23,14 @@ script = ExtResource("3_b1u84")
 [sub_resource type="BTAction" id="BTAction_djlv8"]
 script = ExtResource("1_eokfh")
 
+[sub_resource type="BTAction" id="BTAction_ap4jl"]
+script = ExtResource("4_cs5md")
+
 [sub_resource type="BTAction" id="BTAction_nukqj"]
 script = ExtResource("4_5y1qy")
 
 [sub_resource type="BTSequence" id="BTSequence_a6iiw"]
-children = [SubResource("BTAction_yo603"), SubResource("BTAction_wpcne"), SubResource("BTComment_ucl3f"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_nukqj")]
+children = [SubResource("BTAction_yo603"), SubResource("BTAction_wpcne"), SubResource("BTComment_ucl3f"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_ap4jl"), SubResource("BTAction_nukqj")]
 
 [sub_resource type="BTSequence" id="BTSequence_cci1e"]
 children = [SubResource("BTSequence_a6iiw")]
