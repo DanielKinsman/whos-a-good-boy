@@ -32,6 +32,7 @@ func _ready() -> void:
     mouth_snap_zone.has_picked_up.connect(self.picked_up)
     mouth_snap_zone.has_dropped.connect(self.dropped)
     mouth_snap_zone.enabled = false
+    animation.active = true
 
 
 func _physics_process(delta: float) -> void:
