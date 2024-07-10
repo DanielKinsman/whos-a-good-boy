@@ -9,10 +9,13 @@ signal has_dropped()
 const JUMP_VELOCITY := 4.5
 const FRICTION := 5.0
 const VELOCITY_TURNFACING_THRESHOLD := 1.0**2
+const ANIMATIONS := {
+    &"run": &"for dog|for dog|standing_Run3_001"
+}
+const MOUTH_BONE := &"L_mouth_corner_jnt.97_97"
 
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var walk_backwards := false
 
 
 @onready var move_target: Node3D = null
@@ -20,6 +23,9 @@ var walk_backwards := false
 @onready var look_target: Node3D = null
 
 @onready var mouth_snap_zone: XRToolsSnapZone = $SnapZone
+@onready var animation: AnimationPlayer = $run/AnimationPlayer
+@onready var skeleton: Skeleton3D = $"run/for dog/Skeleton3D"
+@onready var mouth_bone := skeleton.find_bone(MOUTH_BONE)
 
 
 func _ready() -> void:
@@ -37,6 +43,26 @@ func _physics_process(delta: float) -> void:
 
     orient()
     move_and_slide()
+    animate()
+
+
+func animate() -> void:
+    mouth_snap_zone.global_transform = skeleton.global_transform * skeleton.get_bone_global_pose(mouth_bone)
+    mouth_snap_zone.rotate_object_local(Vector3.FORWARD, PI/2.0)
+    mouth_snap_zone.translate_object_local(Vector3.LEFT * 0.1)
+
+    if is_on_floor():
+        var speed := velocity.length()
+        if speed > 1.0:
+            if animation.current_animation == ANIMATIONS[&"run"]:
+                animation.speed_scale = max(0.01, speed) / 5.0
+                # TODO remove magic numbers
+            else:
+                animation.queue(ANIMATIONS[&"run"])
+        else:
+            animation.stop()  # TODO idle animation
+    else:
+        animation.stop()  # TODO let jump animation play out
 
 
 func picked_up(pickable: XRToolsPickable) -> void:
