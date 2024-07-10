@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqnfjkusrkly"]
+[gd_scene load_steps=21 format=3 uid="uid://cqnfjkusrkly"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_jx0gd"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_r634s"]
@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://dpgjpglhmumdj" path="res://assets/soundfx/632327__audacitier__knock-4.wav" id="7_flxi8"]
 [ext_resource type="AudioStream" uid="uid://cqxto423wi0r5" path="res://assets/soundfx/625687__audacitier__knock-1.wav" id="8_wwasu"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="9_s5fgo"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="13_nk1vc"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="14_jaof8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2lck2"]
 size = Vector3(0.05, 0.5, 0.05)
@@ -38,6 +40,13 @@ grab_sound = ExtResource("7_flxi8")
 drop_sound = ExtResource("8_wwasu")
 hit_sound = ExtResource("6_axbhf")
 
+[sub_resource type="Resource" id="Resource_rwp6h"]
+script = ExtResource("14_jaof8")
+magnitude = 0.3
+active_during_pause = false
+indefinite = false
+duration_ms = 100
+
 [node name="Stick" instance=ExtResource("1_jx0gd")]
 collision_mask = 65543
 max_contacts_reported = 1
@@ -62,3 +71,7 @@ hand_pose = SubResource("Resource_y4b3r")
 
 [node name="PickableAudio" parent="." index="4" instance=ExtResource("5_2bk35")]
 pickable_audio_type = SubResource("Resource_kgpuf")
+
+[node name="XRToolsRumbler" type="Node" parent="." index="5"]
+script = ExtResource("13_nk1vc")
+event = SubResource("Resource_rwp6h")
