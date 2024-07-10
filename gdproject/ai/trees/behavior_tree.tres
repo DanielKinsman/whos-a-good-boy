@@ -27,7 +27,7 @@ script = ExtResource("1_xly74")
 
 [sub_resource type="BTAction" id="BTAction_wpcne"]
 script = ExtResource("1_eokfh")
-tolerance = 0.25
+tolerance = 0.5
 
 [sub_resource type="BTAction" id="BTAction_7j5r6"]
 script = ExtResource("4_q5in7")

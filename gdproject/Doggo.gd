@@ -23,7 +23,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var look_target: Node3D = null
 
 @onready var mouth_snap_zone: XRToolsSnapZone = $SnapZone
-@onready var animation: AnimationPlayer = $run/AnimationPlayer
+@onready var animation: AnimationTree = $AnimationTree
 @onready var skeleton: Skeleton3D = $"run/for dog/Skeleton3D"
 @onready var mouth_bone := skeleton.find_bone(MOUTH_BONE)
 
@@ -51,18 +51,14 @@ func animate() -> void:
     mouth_snap_zone.rotate_object_local(Vector3.FORWARD, PI/2.0)
     mouth_snap_zone.translate_object_local(Vector3.LEFT * 0.1)
 
+    var speed := velocity.length()
+    animation.set("parameters/TimeScaleRun/scale", max(0.01, speed) / 5.0)  # TODO remove magic numbers
+
     if is_on_floor():
-        var speed := velocity.length()
         if speed > 1.0:
-            if animation.current_animation == ANIMATIONS[&"run"]:
-                animation.speed_scale = max(0.01, speed) / 5.0
-                # TODO remove magic numbers
-            else:
-                animation.queue(ANIMATIONS[&"run"])
+            animation.set("parameters/Transition/transition_request", "running")
         else:
-            animation.stop()  # TODO idle animation
-    else:
-        animation.stop()  # TODO let jump animation play out
+            animation.set("parameters/Transition/transition_request", "idle")
 
 
 func picked_up(pickable: XRToolsPickable) -> void:
