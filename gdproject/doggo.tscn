@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=20 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
@@ -48,9 +48,15 @@ script = ExtResource("7_na0lm")
 open_pose = ExtResource("9_0nsb8")
 closed_pose = ExtResource("8_bcmi1")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_u46ge"]
-height = 0.832619
-radius = 0.310217
+[sub_resource type="BoxShape3D" id="BoxShape3D_3c4tr"]
+size = Vector3(0.462891, 0.788574, 0.598114)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_32ph0"]
+radius = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gmh6q"]
+height = 0.5262
+radius = 0.120048
 
 [node name="Doggo" type="CharacterBody3D"]
 script = ExtResource("1_xjc8o")
@@ -115,7 +121,19 @@ left_pose = SubResource("Resource_jvbit")
 right_pose = SubResource("Resource_aeros")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HandPoseArea"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.35072, -0.0871628)
-shape = SubResource("CylinderShape3D_u46ge")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.38818, -0.115605)
+shape = SubResource("BoxShape3D_3c4tr")
+
+[node name="StaticBodyPetMe" type="StaticBody3D" parent="HandPoseArea"]
+collision_layer = 2
+collision_mask = 131072
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandPoseArea/StaticBodyPetMe"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.521603, -0.415604)
+shape = SubResource("SphereShape3D_32ph0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HandPoseArea/StaticBodyPetMe"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.351736, -0.0820985)
+shape = SubResource("CylinderShape3D_gmh6q")
 
 [editable path="run"]
