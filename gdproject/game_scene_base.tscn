@@ -16,7 +16,7 @@
 [node name="GameSceneBase" instance=ExtResource("1_2fsc6")]
 
 [node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_w5anf")]
-collision_mask = 327707
+collision_mask = 262171
 
 [node name="Viewport2Din3D" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("5_stnsb")]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.0301059, -0.0422168, 0.229782)
@@ -42,7 +42,7 @@ target_radius = 0.001
 [node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="5" instance=ExtResource("8_j7d1k")]
 
 [node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("5_rcy6e")]
-collision_mask = 327707
+collision_mask = 262171
 
 [node name="MovementTurn" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("7_we6au")]
 

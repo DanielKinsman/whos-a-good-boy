@@ -13,8 +13,6 @@ func _ready() -> void:
     stick.dropped.connect(self.pickable_dropped)
     stick.picked_up.connect(self.pickable_picked_up)
 
-    thrown_object = stick  # TODO undo hax
-
 
 func pickable_dropped(pickable: XRToolsPickable) -> void:
     if held_object == pickable:
@@ -22,6 +20,11 @@ func pickable_dropped(pickable: XRToolsPickable) -> void:
 
     if pickable.linear_velocity.length_squared() > 0.5:  # TODO fix magic number
         thrown_object = pickable
+        var sound :XRToolsPickableAudio = thrown_object.get_node("PickableAudio")
+        if is_instance_valid(sound):
+            # this is very hacky
+            sound.stream = sound.pickable_audio_type.hit_sound
+            sound.play()
 
 
 func pickable_picked_up(pickable: XRToolsPickable) -> void:
