@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=23 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
@@ -14,8 +14,9 @@
 radius = 0.232123
 height = 0.568411
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0nn0e"]
-animation = &"for dog|for dog|Dog_Idel"
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qmbo3"]
+fadein_time = 0.25
+fadeout_time = 0.25
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_6xa4w"]
 
@@ -27,21 +28,35 @@ input_0/reset = true
 input_1/name = "running"
 input_1/auto_advance = false
 input_1/reset = true
+input_2/name = "bark"
+input_2/auto_advance = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ou121"]
+animation = &"for dog|for dog|BarkDog"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0nn0e"]
+animation = &"for dog|for dog|Dog_Idel"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3cf8x"]
 animation = &"for dog|for dog|standing_Run3"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gsat2"]
-nodes/Animation/node = SubResource("AnimationNodeAnimation_0nn0e")
-nodes/Animation/position = Vector2(200, 260)
+graph_offset = Vector2(865.951, -27.7273)
+nodes/OneShotBark/node = SubResource("AnimationNodeOneShot_qmbo3")
+nodes/OneShotBark/position = Vector2(1360, 80)
 nodes/TimeScaleRun/node = SubResource("AnimationNodeTimeScale_6xa4w")
-nodes/TimeScaleRun/position = Vector2(480, 80)
+nodes/TimeScaleRun/position = Vector2(660, 220)
 nodes/Transition/node = SubResource("AnimationNodeTransition_i47yo")
-nodes/Transition/position = Vector2(700, 120)
-nodes/output/position = Vector2(900, 120)
+nodes/Transition/position = Vector2(920, 100)
+nodes/bark/node = SubResource("AnimationNodeAnimation_ou121")
+nodes/bark/position = Vector2(1080, 200)
+nodes/idle/node = SubResource("AnimationNodeAnimation_0nn0e")
+nodes/idle/position = Vector2(340, 80)
+nodes/output/position = Vector2(1560, 100)
 nodes/running/node = SubResource("AnimationNodeAnimation_3cf8x")
-nodes/running/position = Vector2(120, 100)
-node_connections = [&"TimeScaleRun", 0, &"running", &"Transition", 0, &"Animation", &"Transition", 1, &"TimeScaleRun", &"output", 0, &"Transition"]
+nodes/running/position = Vector2(320, 220)
+node_connections = [&"OneShotBark", 0, &"Transition", &"OneShotBark", 1, &"bark", &"TimeScaleRun", 0, &"running", &"Transition", 0, &"idle", &"Transition", 1, &"TimeScaleRun", &"output", 0, &"OneShotBark"]
 
 [sub_resource type="Resource" id="Resource_jvbit"]
 script = ExtResource("7_na0lm")
@@ -79,6 +94,9 @@ active = false
 root_node = NodePath("../run")
 tree_root = SubResource("AnimationNodeBlendTree_gsat2")
 anim_player = NodePath("../run/AnimationPlayer")
+parameters/OneShotBark/active = false
+parameters/OneShotBark/internal_active = false
+parameters/OneShotBark/request = 0
 parameters/TimeScaleRun/scale = 0.1
 parameters/Transition/current_state = "idle"
 parameters/Transition/transition_request = ""
@@ -151,6 +169,7 @@ bones/38/scale = Vector3(1, 1, 1)
 bones/39/rotation = Quaternion(0.044841, 0.00267903, -0.0925135, 0.994698)
 bones/39/scale = Vector3(1, 1, 1)
 bones/40/rotation = Quaternion(0.069621, -0.00713673, -0.000211662, 0.997548)
+bones/40/scale = Vector3(1, 1, 1)
 bones/41/rotation = Quaternion(-0.0464797, -0.00904597, -0.0657001, 0.996715)
 bones/41/scale = Vector3(1, 1, 1)
 bones/42/rotation = Quaternion(0.0934738, 0.949428, 0.298782, -0.0240508)
@@ -172,6 +191,7 @@ bones/52/scale = Vector3(1, 1, 1)
 bones/53/rotation = Quaternion(-0.053295, 0.00404269, -0.0603688, 0.996744)
 bones/53/scale = Vector3(1, 1, 1)
 bones/54/rotation = Quaternion(0.712472, 4.78055e-05, -1.40899e-05, 0.701701)
+bones/54/scale = Vector3(1, 1, 1)
 bones/55/rotation = Quaternion(0.7032, 4.23754e-07, 5.86772e-07, 0.710992)
 bones/56/rotation = Quaternion(-0.00326226, 2.382e-07, -5.44986e-09, 0.999995)
 bones/57/rotation = Quaternion(-0.304131, -2.26884e-07, -5.07493e-07, 0.95263)
@@ -275,6 +295,7 @@ bones/146/scale = Vector3(1, 1, 1)
 bones/148/rotation = Quaternion(0.272483, -0.00698648, -0.114266, 0.955326)
 bones/148/scale = Vector3(1, 1, 1)
 bones/149/rotation = Quaternion(-0.222993, -0.0244295, 0.0288369, 0.974087)
+bones/149/scale = Vector3(1, 1, 1)
 bones/150/rotation = Quaternion(0.133834, -0.0029387, 0.0290199, 0.990574)
 bones/151/rotation = Quaternion(0.00471313, 0.83813, -0.545448, -0.00133081)
 bones/151/scale = Vector3(1, 1, 1)

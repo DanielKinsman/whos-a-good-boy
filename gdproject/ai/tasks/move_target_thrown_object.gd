@@ -15,4 +15,5 @@ func _tick(_delta: float) -> Status:
         return FAILURE
 
     dog.move_target = ag.thrown_object
+    dog.orient_target = null
     return SUCCESS

@@ -72,8 +72,11 @@ func dropped() -> void:
 
 
 func orient() -> void:
+    var look: Vector3
     if is_instance_valid(orient_target):
-        self.look_at(orient_target.global_position)
+        look = orient_target.global_position
+        look.y = 0.0
+        self.look_at(look)
         # TODO lerp
         return
 
@@ -81,7 +84,7 @@ func orient() -> void:
     if velocity.length_squared() < VELOCITY_TURNFACING_THRESHOLD:
         return
 
-    var look := Vector3(velocity)
+    look = self.velocity
     if self.global_position.y < 0.5:  # TODO hax assumes floor is at 0y
         look.y = 0.0
         self.look_at(self.global_position + look)
