@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=33 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=41 format=3 uid="uid://cbcval5mrgh05"]
 
 [ext_resource type="Script" path="res://ai/tasks/move_target_follow_human_held_object.gd" id="1_3iueq"]
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://ai/tasks/drop_held_object.gd" id="4_5y1qy"]
 [ext_resource type="Script" path="res://ai/tasks/wait_till_stationary.gd" id="4_cs5md"]
 [ext_resource type="Script" path="res://ai/tasks/pickup_object.gd" id="4_q5in7"]
+[ext_resource type="Script" path="res://ai/tasks/clear_thrown_objects.gd" id="10_3ocfg"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_porc0"]
 
@@ -54,6 +55,19 @@ max_duration = 0.5
 script = ExtResource("1_eokfh")
 tolerance = 0.5
 
+[sub_resource type="BTTimeLimit" id="BTTimeLimit_37v4v"]
+time_limit = 10.0
+children = [SubResource("BTAction_wpcne")]
+
+[sub_resource type="BTAction" id="BTAction_wa1xx"]
+script = ExtResource("10_3ocfg")
+
+[sub_resource type="BTAlwaysFail" id="BTAlwaysFail_wfkik"]
+children = [SubResource("BTAction_wa1xx")]
+
+[sub_resource type="BTSelector" id="BTSelector_ruk3d"]
+children = [SubResource("BTTimeLimit_37v4v"), SubResource("BTAlwaysFail_wfkik")]
+
 [sub_resource type="BTAction" id="BTAction_7j5r6"]
 script = ExtResource("4_q5in7")
 
@@ -81,10 +95,20 @@ max_duration = 3.0
 script = ExtResource("4_5y1qy")
 
 [sub_resource type="BTSequence" id="BTSequence_a6iiw"]
-children = [SubResource("BTAction_yo603"), SubResource("BTRandomWait_ofivj"), SubResource("BTAction_wpcne"), SubResource("BTAction_7j5r6"), SubResource("BTAction_66wj3"), SubResource("BTRandomWait_hh22k"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_ap4jl"), SubResource("BTRandomWait_h4pix"), SubResource("BTAction_nukqj")]
+children = [SubResource("BTAction_yo603"), SubResource("BTRandomWait_ofivj"), SubResource("BTSelector_ruk3d"), SubResource("BTAction_7j5r6"), SubResource("BTAction_66wj3"), SubResource("BTRandomWait_hh22k"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_ap4jl"), SubResource("BTRandomWait_h4pix"), SubResource("BTAction_nukqj")]
+
+[sub_resource type="BTAction" id="BTAction_h87ui"]
+script = ExtResource("3_b1u84")
+
+[sub_resource type="BTAction" id="BTAction_hbosg"]
+script = ExtResource("1_eokfh")
+tolerance = 5.0
+
+[sub_resource type="BTSequence" id="BTSequence_qho0y"]
+children = [SubResource("BTAction_h87ui"), SubResource("BTAction_hbosg")]
 
 [sub_resource type="BTSelector" id="BTSelector_rwknl"]
-children = [SubResource("BTSequence_l52av"), SubResource("BTSequence_a6iiw")]
+children = [SubResource("BTSequence_l52av"), SubResource("BTSequence_a6iiw"), SubResource("BTSequence_qho0y")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_porc0")

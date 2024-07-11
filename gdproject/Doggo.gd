@@ -93,6 +93,9 @@ func orient() -> void:
 
 
 func lerp_look_at(at: Vector3, weight: float) -> void:
+        if at.is_equal_approx(self.global_position):
+            return
+
         # this is so hacky but it works
         var old_trans := Transform3D(self.transform)
         self.look_at(at)
