@@ -11,9 +11,9 @@ func _enter() -> void:
 
 
 func _tick(_delta: float) -> Status:
-    if not is_instance_valid(ag.held_object):
+    if ag.held_objects.is_empty():
         return FAILURE
 
-    dog.move_target = ag.held_object
+    dog.move_target = ag.held_objects.front()
     dog.orient_target = null
     return SUCCESS
