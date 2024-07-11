@@ -81,17 +81,10 @@ func orient() -> void:
         return
 
     # default to following movement
-    if velocity.length_squared() < VELOCITY_TURNFACING_THRESHOLD:
-        return
+    var y_clamp := Vector2(velocity.x, velocity.z).length() * 0.75
+    if is_on_floor():
+        y_clamp = 0.0
 
-    look = self.velocity
-    if self.global_position.y < 0.5:  # TODO hax assumes floor is at 0y
-        look.y = 0.0
-
-    if not is_on_floor():
-        return # no air control of orientation
-
-    look.y = 0.0  # hax
-    # TODO min / max vertical orientation
-    self.look_at(self.global_position + look)
+    self.look_at(self.global_position + Vector3(velocity.x, clampf(velocity.y * 0.5, -y_clamp, +y_clamp), velocity.z))
     # TODO make it more natural when quick changes of direction (lerp)
+    # make the lerp weight proportional to velocity magnitude
