@@ -49,6 +49,7 @@ environment = SubResource("Environment_imx1a")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_np36m")
@@ -66,7 +67,7 @@ transform = Transform3D(0.948152, -0.317818, 0, 0.317818, 0.948152, 0, 0, 0, 1, 
 shape = SubResource("BoxShape3D_quqbh")
 
 [node name="Doggo" parent="." instance=ExtResource("1_7dki7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128274, 4.72986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114549, 4.72986)
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_m3s4m")
