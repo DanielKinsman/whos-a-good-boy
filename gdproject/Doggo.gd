@@ -8,7 +8,7 @@ signal has_dropped()
 
 const JUMP_VELOCITY := 4.5
 const FRICTION := 5.0
-const VELOCITY_TURNFACING_THRESHOLD := 1.0**2
+const VELOCITY_TURNFACING_THRESHOLD := 0.1**2
 const ANIMATIONS := {
     &"run": &"for dog|for dog|standing_Run3_001"
 }
@@ -72,19 +72,29 @@ func dropped() -> void:
 
 
 func orient() -> void:
-    var look: Vector3
     if is_instance_valid(orient_target):
-        look = orient_target.global_position
+        var look := Vector3(orient_target.global_position)
         look.y = 0.0
-        self.look_at(look)
-        # TODO lerp
+        lerp_look_at(look, 0.1)
         return
 
     # default to following movement
+    if velocity.length_squared() < VELOCITY_TURNFACING_THRESHOLD:
+        return
+
     var y_clamp := Vector2(velocity.x, velocity.z).length() * 0.75
     if is_on_floor():
         y_clamp = 0.0
 
-    self.look_at(self.global_position + Vector3(velocity.x, clampf(velocity.y * 0.5, -y_clamp, +y_clamp), velocity.z))
-    # TODO make it more natural when quick changes of direction (lerp)
-    # make the lerp weight proportional to velocity magnitude
+    lerp_look_at(
+        self.global_position + Vector3(velocity.x, clampf(velocity.y * 0.5, -y_clamp, +y_clamp), velocity.z),
+        0.1, # TODO make the lerp weight proportional to velocity magnitude
+    )
+
+
+func lerp_look_at(at: Vector3, weight: float) -> void:
+        # this is so hacky but it works
+        var old_trans := Transform3D(self.transform)
+        self.look_at(at)
+        var new_trans := Transform3D(self.transform)
+        self.transform = old_trans.interpolate_with(new_trans, weight)
