@@ -3,20 +3,21 @@ extends Node3D
 
 
 @onready var dog: Doggo = $Doggo
-@onready var stick: XRToolsPickable = $Stick
+@onready var sticks: Node3D = $Sticks
 @onready var thrown_object: XRToolsPickable = null
-@onready var held_object : XRToolsPickable = null
+@onready var held_objects: Array[XRToolsPickable] = []
 
 
 func _ready() -> void:
     dog.has_picked_up.connect(self.dog_picked_up)
-    stick.dropped.connect(self.pickable_dropped)
-    stick.picked_up.connect(self.pickable_picked_up)
+    for s: XRToolsPickable in sticks.get_children():
+        s.dropped.connect(self.pickable_dropped)
+        s.picked_up.connect(self.pickable_picked_up)
 
 
 func pickable_dropped(pickable: XRToolsPickable) -> void:
-    if held_object == pickable:
-        held_object = null
+    if held_objects.has(pickable):
+        held_objects.erase(pickable)
 
         if pickable.linear_velocity.length_squared() > 0.5:  # TODO fix magic number
             thrown_object = pickable
@@ -28,8 +29,11 @@ func pickable_dropped(pickable: XRToolsPickable) -> void:
 
 
 func pickable_picked_up(pickable: XRToolsPickable) -> void:
-    if pickable.get_picked_up_by() as XRToolsFunctionPickup != null:
-        held_object = pickable  # only picked up by hands, not by snap zones (dog)
+    if pickable.get_picked_up_by() as XRToolsFunctionPickup == null:
+        return  # not picked up by player hands
+
+    if not held_objects.has(pickable):
+        held_objects.append(pickable)
 
     var rumbler: XRToolsRumbler = pickable.get_node("XRToolsRumbler")  # hax
     if is_instance_valid(rumbler):

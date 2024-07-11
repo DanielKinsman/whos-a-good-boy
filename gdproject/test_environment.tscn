@@ -68,9 +68,6 @@ shape = SubResource("BoxShape3D_quqbh")
 [node name="Doggo" parent="." instance=ExtResource("1_7dki7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128274, 4.72986)
 
-[node name="Stick" parent="." instance=ExtResource("3_57ecf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97411, -2.8747)
-
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_m3s4m")
 blackboard_plan = SubResource("BlackboardPlan_3e33n")
@@ -108,5 +105,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01886, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0103989, 0, 0.124797)
 shape = SubResource("CylinderShape3D_x3x0b")
+
+[node name="Sticks" type="Node3D" parent="."]
+
+[node name="Stick" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.333001, 0.942927, -4.12166e-08, 0, -4.37114e-08, -1, -0.942927, -0.333001, 1.45559e-08, 0, 0.0249997, -2.8747)
+
+[node name="Stick2" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(0.898212, -0.439563, 1.92139e-08, 0, -4.37114e-08, -1, 0.439563, 0.898212, -3.92621e-08, 0, 0.0249997, 2.38475)
+
+[node name="Stick3" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.141074, 0.989999, -4.32742e-08, 0, -4.37114e-08, -1, -0.989999, -0.141074, 6.16654e-09, 11.8437, -0.0139422, 8.11398)
+
+[node name="Stick4" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.293056, -0.956095, 4.17923e-08, 0, -4.37114e-08, -1, 0.956095, -0.293056, 1.28099e-08, 2.28486, 0.0250001, 21.0579)
+
+[node name="Stick5" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.911403, -0.411514, 1.79879e-08, 0, -4.37114e-08, -1, 0.411514, -0.911403, 3.98387e-08, -18.9953, 0.00186825, 10.4844)
 
 [editable path="Sketchfab_Scene"]
