@@ -49,6 +49,7 @@ duration_ms = 100
 
 [node name="Stick" instance=ExtResource("1_jx0gd")]
 collision_mask = 65543
+sleeping = true
 max_contacts_reported = 1
 contact_monitor = true
 
