@@ -74,7 +74,7 @@ func dropped() -> void:
 func orient() -> void:
     if is_instance_valid(orient_target):
         var look := Vector3(orient_target.global_position)
-        look.y = 0.0
+        look.y = self.global_position.y
         lerp_look_at(look, 0.1)
         return
 
