@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=32 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=33 format=3 uid="uid://cbcval5mrgh05"]
 
 [ext_resource type="Script" path="res://ai/tasks/move_target_follow_human_held_object.gd" id="1_3iueq"]
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
@@ -57,6 +57,9 @@ tolerance = 0.5
 [sub_resource type="BTAction" id="BTAction_7j5r6"]
 script = ExtResource("4_q5in7")
 
+[sub_resource type="BTAction" id="BTAction_66wj3"]
+script = ExtResource("4_cs5md")
+
 [sub_resource type="BTRandomWait" id="BTRandomWait_hh22k"]
 min_duration = 0.5
 
@@ -78,7 +81,7 @@ max_duration = 3.0
 script = ExtResource("4_5y1qy")
 
 [sub_resource type="BTSequence" id="BTSequence_a6iiw"]
-children = [SubResource("BTAction_yo603"), SubResource("BTRandomWait_ofivj"), SubResource("BTAction_wpcne"), SubResource("BTAction_7j5r6"), SubResource("BTRandomWait_hh22k"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_ap4jl"), SubResource("BTRandomWait_h4pix"), SubResource("BTAction_nukqj")]
+children = [SubResource("BTAction_yo603"), SubResource("BTRandomWait_ofivj"), SubResource("BTAction_wpcne"), SubResource("BTAction_7j5r6"), SubResource("BTAction_66wj3"), SubResource("BTRandomWait_hh22k"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_ap4jl"), SubResource("BTRandomWait_h4pix"), SubResource("BTAction_nukqj")]
 
 [sub_resource type="BTSelector" id="BTSelector_rwknl"]
 children = [SubResource("BTSequence_l52av"), SubResource("BTSequence_a6iiw")]

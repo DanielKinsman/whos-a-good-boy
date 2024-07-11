@@ -87,5 +87,11 @@ func orient() -> void:
     look = self.velocity
     if self.global_position.y < 0.5:  # TODO hax assumes floor is at 0y
         look.y = 0.0
-        self.look_at(self.global_position + look)
-        # TODO make it more natural when quick changes of direction (lerp)
+
+    if not is_on_floor():
+        return # no air control of orientation
+
+    look.y = 0.0  # hax
+    # TODO min / max vertical orientation
+    self.look_at(self.global_position + look)
+    # TODO make it more natural when quick changes of direction (lerp)

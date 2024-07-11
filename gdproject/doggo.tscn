@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=26 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
@@ -18,7 +18,12 @@ height = 0.568411
 fadein_time = 0.25
 fadeout_time = 0.25
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_e1lwo"]
+fadeout_time = 0.25
+
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_6xa4w"]
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_sk75q"]
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_i47yo"]
 xfade_time = 0.25
@@ -38,25 +43,34 @@ animation = &"BarkDog"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0nn0e"]
 animation = &"Dog_Idel"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_is2qy"]
+animation = &"jump"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3cf8x"]
 animation = &"standing_Run3"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gsat2"]
-graph_offset = Vector2(936.601, 0)
+graph_offset = Vector2(1162.23, 0)
 nodes/OneShotBark/node = SubResource("AnimationNodeOneShot_qmbo3")
 nodes/OneShotBark/position = Vector2(1360, 80)
+nodes/OneShotJump/node = SubResource("AnimationNodeOneShot_e1lwo")
+nodes/OneShotJump/position = Vector2(1680, 80)
 nodes/TimeScaleRun/node = SubResource("AnimationNodeTimeScale_6xa4w")
 nodes/TimeScaleRun/position = Vector2(660, 220)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_sk75q")
+nodes/TimeSeek/position = Vector2(1520, 300)
 nodes/Transition/node = SubResource("AnimationNodeTransition_i47yo")
 nodes/Transition/position = Vector2(920, 100)
 nodes/bark/node = SubResource("AnimationNodeAnimation_ou121")
 nodes/bark/position = Vector2(1080, 200)
 nodes/idle/node = SubResource("AnimationNodeAnimation_0nn0e")
 nodes/idle/position = Vector2(340, 80)
-nodes/output/position = Vector2(1560, 100)
+nodes/jump/node = SubResource("AnimationNodeAnimation_is2qy")
+nodes/jump/position = Vector2(1340, 320)
+nodes/output/position = Vector2(2000, 120)
 nodes/running/node = SubResource("AnimationNodeAnimation_3cf8x")
 nodes/running/position = Vector2(320, 220)
-node_connections = [&"OneShotBark", 0, &"Transition", &"OneShotBark", 1, &"bark", &"TimeScaleRun", 0, &"running", &"Transition", 0, &"idle", &"Transition", 1, &"TimeScaleRun", &"output", 0, &"OneShotBark"]
+node_connections = [&"OneShotBark", 0, &"Transition", &"OneShotBark", 1, &"bark", &"OneShotJump", 0, &"OneShotBark", &"OneShotJump", 1, &"TimeSeek", &"TimeScaleRun", 0, &"running", &"TimeSeek", 0, &"jump", &"Transition", 0, &"idle", &"Transition", 1, &"TimeScaleRun", &"output", 0, &"OneShotJump"]
 
 [sub_resource type="Resource" id="Resource_jvbit"]
 script = ExtResource("7_na0lm")
@@ -97,7 +111,11 @@ anim_player = NodePath("../run/AnimationPlayer")
 parameters/OneShotBark/active = false
 parameters/OneShotBark/internal_active = false
 parameters/OneShotBark/request = 0
-parameters/TimeScaleRun/scale = 0.1
+parameters/OneShotJump/active = false
+parameters/OneShotJump/internal_active = false
+parameters/OneShotJump/request = 0
+parameters/TimeScaleRun/scale = 1.0
+parameters/TimeSeek/seek_request = 0.33
 parameters/Transition/current_state = "idle"
 parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 0
