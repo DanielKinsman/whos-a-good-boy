@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="xrgamejam"
+config/name="Who's a good boy?"
+config/description="A game about a dog"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
