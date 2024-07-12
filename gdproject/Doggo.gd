@@ -26,11 +26,20 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var animation: AnimationTree = $AnimationTree
 @onready var skeleton: Skeleton3D = $"run/for dog/Skeleton3D"
 @onready var mouth_bone := skeleton.find_bone(MOUTH_BONE)
+@onready var petting_rumble_area: Area3D = $PettingRumbleArea
+@onready var rumbler_left: XRToolsRumbler = $PettingRumbleArea/XRToolsRumblerLeft
+@onready var rumbler_right: XRToolsRumbler = $PettingRumbleArea/XRToolsRumblerRight
+@onready var function_pickup_left: XRToolsFunctionPickup = null
+@onready var function_pickup_right: XRToolsFunctionPickup = null
+@onready var petting_left := false
+@onready var petting_right := false
 
 
 func _ready() -> void:
     mouth_snap_zone.has_picked_up.connect(self.picked_up)
     mouth_snap_zone.has_dropped.connect(self.dropped)
+    petting_rumble_area.body_entered.connect(self.petting_commenced)
+    petting_rumble_area.body_exited.connect(self.petting_ceased)
     mouth_snap_zone.enabled = false
     animation.active = true
 
@@ -45,6 +54,7 @@ func _physics_process(delta: float) -> void:
     orient()
     move_and_slide()
     animate()
+    vibrate()
 
 
 func animate() -> void:
@@ -103,3 +113,42 @@ func lerp_look_at(at: Vector3, weight: float) -> void:
         self.look_at(at)
         var new_trans := Transform3D(self.transform)
         self.transform = old_trans.interpolate_with(new_trans, weight)
+
+
+func petting_commenced(body: Node3D) -> void:
+    var collision_hand := body as XRToolsCollisionHand
+    if not is_instance_valid(collision_hand):
+        return
+
+    if collision_hand.name.ends_with("Left"):  # hacky!
+        petting_left = true
+        if not is_instance_valid(function_pickup_left):
+            function_pickup_left = XRTools.find_xr_child(collision_hand, "*", "XRToolsFunctionPickup")
+    else:
+        petting_right = true
+        if not is_instance_valid(function_pickup_right):
+            function_pickup_right = XRTools.find_xr_child(collision_hand, "*", "XRToolsFunctionPickup")
+
+
+func petting_ceased(body: Node3D) -> void:
+    var collision_hand := body as XRToolsCollisionHand
+    if not is_instance_valid(collision_hand):
+        return
+
+    if collision_hand.name.ends_with("Left"):  # hacky!
+        petting_left = false
+    else:
+        petting_right = false
+
+
+func vibrate() -> void:
+    Doggo.vibrate_hand(function_pickup_left, rumbler_left, petting_left)
+    Doggo.vibrate_hand(function_pickup_right, rumbler_right, petting_right)
+
+
+static func vibrate_hand(hand: XRToolsFunctionPickup, rumbler: XRToolsRumbler, petting: bool) -> void:
+    if petting:
+        rumbler.event.magnitude = clampf(hand._velocity_averager.linear_velocity().length() / 1.0, 0.0, 1.0)
+        rumbler.rumble_hand(hand)
+    else:
+        rumbler.cancel_hand(hand)

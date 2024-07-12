@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=30 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_na0lm"]
 [ext_resource type="Animation" uid="uid://wcwa3p1qrhwr" path="res://addons/godot-xr-tools/hands/animations/right/Rounded.res" id="8_bcmi1"]
 [ext_resource type="Animation" uid="uid://d3h36bkauutoq" path="res://addons/godot-xr-tools/hands/animations/right/Straight.res" id="9_0nsb8"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="10_td8s6"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="11_80bhy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hb11"]
 radius = 0.279443
@@ -92,6 +94,20 @@ radius = 0.1
 height = 0.558215
 radius = 0.120048
 
+[sub_resource type="Resource" id="Resource_vatjv"]
+script = ExtResource("11_80bhy")
+magnitude = 0.5
+active_during_pause = false
+indefinite = true
+duration_ms = 300
+
+[sub_resource type="Resource" id="Resource_amb8j"]
+script = ExtResource("11_80bhy")
+magnitude = 0.5
+active_during_pause = false
+indefinite = true
+duration_ms = 300
+
 [node name="Doggo" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 655361
@@ -143,5 +159,25 @@ shape = SubResource("SphereShape3D_32ph0")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="HandPoseArea/StaticBodyPetMe"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.351736, -0.104759)
 shape = SubResource("CylinderShape3D_gmh6q")
+
+[node name="PettingRumbleArea" type="Area3D" parent="."]
+collision_layer = 131072
+collision_mask = 131072
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="PettingRumbleArea"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.609277, -0.355339)
+shape = SubResource("SphereShape3D_32ph0")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="PettingRumbleArea"]
+transform = Transform3D(1.1, 0, 0, 0, -4.80825e-08, -1.1, 0, 1.1, -4.80825e-08, 0, 0.351736, -0.104759)
+shape = SubResource("CylinderShape3D_gmh6q")
+
+[node name="XRToolsRumblerLeft" type="Node" parent="PettingRumbleArea"]
+script = ExtResource("10_td8s6")
+event = SubResource("Resource_vatjv")
+
+[node name="XRToolsRumblerRight" type="Node" parent="PettingRumbleArea"]
+script = ExtResource("10_td8s6")
+event = SubResource("Resource_amb8j")
 
 [editable path="run"]

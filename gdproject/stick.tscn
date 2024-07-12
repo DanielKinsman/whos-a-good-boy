@@ -37,7 +37,7 @@ hit_sound = ExtResource("6_axbhf")
 
 [sub_resource type="Resource" id="Resource_rwp6h"]
 script = ExtResource("14_jaof8")
-magnitude = 0.3
+magnitude = 0.4
 active_during_pause = false
 indefinite = false
 duration_ms = 100
