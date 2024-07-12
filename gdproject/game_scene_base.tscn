@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxqrr03hnsrb2"]
+[gd_scene load_steps=15 format=3 uid="uid://cxqrr03hnsrb2"]
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_2fsc6"]
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_w5anf"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="8_rhang"]
 [ext_resource type="PackedScene" uid="uid://bft3xyxs31ci3" path="res://addons/godot-xr-tools/functions/function_pose_detector.tscn" id="9_qwcq2"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="10_0a2lu"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="10_aj20d"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="11_4bnpw"]
 
 [node name="GameSceneBase" instance=ExtResource("1_2fsc6")]
@@ -46,6 +47,8 @@ impulse_factor = 1.5
 
 [node name="FunctionPoseDetector" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="6" instance=ExtResource("9_qwcq2")]
 
+[node name="FunctionTeleport" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="7" instance=ExtResource("10_aj20d")]
+
 [node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("5_rcy6e")]
 collision_mask = 262171
 
@@ -63,6 +66,9 @@ impulse_factor = 1.5
 [node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="4" instance=ExtResource("11_4bnpw")]
 
 [node name="FunctionPoseDetector" parent="XROrigin3D/RightHand/CollisionHandRight" index="5" instance=ExtResource("9_qwcq2")]
+
+[node name="FunctionTeleport" parent="XROrigin3D/RightHand/CollisionHandRight" index="6" instance=ExtResource("10_aj20d")]
+rotation_action = ""
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("8_3b6xx")]
 player_calibrate_height = false
