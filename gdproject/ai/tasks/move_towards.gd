@@ -1,9 +1,8 @@
 @tool
 extends BTAction
 
-const ACCELERATION := 20.0
-
 @export_range(0.0, 100.0) var tolerance := 0.25
+@export_range(1.0, 50.0) var acceleration := 20.0
 var dog: Doggo
 
 
@@ -33,7 +32,6 @@ func _tick(delta: float) -> Status:
     if (vector_to_target.max_axis_index() == Vector3.AXIS_Y and
             vector_to_target.y > 2.0 and vector_to_target.y < 4.0 and
             ground_vector_to_target.length() < 1.0):
-        #dog.velocity.y = 3.5
         # dog jumps about 1/3 of a second in to the animation
         if blackboard.get_var(&"jump_requested"):
             return RUNNING
@@ -44,6 +42,6 @@ func _tick(delta: float) -> Status:
         if not dog.animation.get("parameters/OneShotJump/active"):
             dog.animation.set("parameters/OneShotJump/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
     else:
-        dog.velocity += ground_vector_to_target.normalized() * ACCELERATION * delta
+        dog.velocity += ground_vector_to_target.normalized() * acceleration * delta
 
     return RUNNING

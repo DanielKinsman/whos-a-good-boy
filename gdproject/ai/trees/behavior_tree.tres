@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=41 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=64 format=3 uid="uid://cbcval5mrgh05"]
 
 [ext_resource type="Script" path="res://ai/tasks/move_target_follow_human_held_object.gd" id="1_3iueq"]
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://ai/tasks/wait_till_stationary.gd" id="4_cs5md"]
 [ext_resource type="Script" path="res://ai/tasks/pickup_object.gd" id="4_q5in7"]
 [ext_resource type="Script" path="res://ai/tasks/clear_thrown_objects.gd" id="10_3ocfg"]
+[ext_resource type="Script" path="res://ai/tasks/move_target_poi.gd" id="11_4wwe8"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_porc0"]
 
@@ -42,6 +43,7 @@ duration = 5.0
 children = [SubResource("BTSequence_kt7u8")]
 
 [sub_resource type="BTSequence" id="BTSequence_l52av"]
+custom_name = "wait_for_throw"
 children = [SubResource("BTAction_mfio2"), SubResource("BTAction_fp5tn"), SubResource("BTCooldown_xmsqj")]
 
 [sub_resource type="BTAction" id="BTAction_yo603"]
@@ -54,6 +56,7 @@ max_duration = 0.5
 [sub_resource type="BTAction" id="BTAction_wpcne"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
+acceleration = 40.0
 
 [sub_resource type="BTTimeLimit" id="BTTimeLimit_37v4v"]
 time_limit = 10.0
@@ -83,6 +86,7 @@ script = ExtResource("3_b1u84")
 [sub_resource type="BTAction" id="BTAction_djlv8"]
 script = ExtResource("1_eokfh")
 tolerance = 2.0
+acceleration = 20.0
 
 [sub_resource type="BTAction" id="BTAction_ap4jl"]
 script = ExtResource("4_cs5md")
@@ -95,6 +99,7 @@ max_duration = 3.0
 script = ExtResource("4_5y1qy")
 
 [sub_resource type="BTSequence" id="BTSequence_a6iiw"]
+custom_name = "fetch"
 children = [SubResource("BTAction_yo603"), SubResource("BTRandomWait_ofivj"), SubResource("BTSelector_ruk3d"), SubResource("BTAction_7j5r6"), SubResource("BTAction_66wj3"), SubResource("BTRandomWait_hh22k"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_ap4jl"), SubResource("BTRandomWait_h4pix"), SubResource("BTAction_nukqj")]
 
 [sub_resource type="BTAction" id="BTAction_h87ui"]
@@ -103,12 +108,111 @@ script = ExtResource("3_b1u84")
 [sub_resource type="BTAction" id="BTAction_hbosg"]
 script = ExtResource("1_eokfh")
 tolerance = 5.0
+acceleration = 20.0
 
 [sub_resource type="BTSequence" id="BTSequence_qho0y"]
 children = [SubResource("BTAction_h87ui"), SubResource("BTAction_hbosg")]
 
+[sub_resource type="BTAction" id="BTAction_rac02"]
+script = ExtResource("11_4wwe8")
+poi_node_path = NodePath("FountainZoomies/marker")
+
+[sub_resource type="BTAction" id="BTAction_i3jmp"]
+script = ExtResource("1_eokfh")
+tolerance = 0.5
+acceleration = 40.0
+
+[sub_resource type="BTAction" id="BTAction_dqdc3"]
+script = ExtResource("11_4wwe8")
+poi_node_path = NodePath("FountainZoomies/marker2")
+
+[sub_resource type="BTAction" id="BTAction_fo6um"]
+script = ExtResource("1_eokfh")
+tolerance = 0.5
+acceleration = 40.0
+
+[sub_resource type="BTAction" id="BTAction_arpqf"]
+script = ExtResource("11_4wwe8")
+poi_node_path = NodePath("FountainZoomies/marker3")
+
+[sub_resource type="BTAction" id="BTAction_aggau"]
+script = ExtResource("1_eokfh")
+tolerance = 0.5
+acceleration = 40.0
+
+[sub_resource type="BTAction" id="BTAction_bq610"]
+script = ExtResource("11_4wwe8")
+poi_node_path = NodePath("FountainZoomies/marker4")
+
+[sub_resource type="BTAction" id="BTAction_eowps"]
+script = ExtResource("1_eokfh")
+tolerance = 0.5
+acceleration = 40.0
+
+[sub_resource type="BTAction" id="BTAction_n2v3p"]
+script = ExtResource("11_4wwe8")
+poi_node_path = NodePath("FountainZoomies/marker5")
+
+[sub_resource type="BTAction" id="BTAction_j16be"]
+script = ExtResource("1_eokfh")
+tolerance = 0.5
+acceleration = 40.0
+
+[sub_resource type="BTAction" id="BTAction_juxno"]
+script = ExtResource("11_4wwe8")
+poi_node_path = NodePath("FountainZoomies/marker6")
+
+[sub_resource type="BTAction" id="BTAction_xjlgd"]
+script = ExtResource("1_eokfh")
+tolerance = 0.5
+acceleration = 40.0
+
+[sub_resource type="BTAction" id="BTAction_dj35w"]
+script = ExtResource("11_4wwe8")
+poi_node_path = NodePath("FountainZoomies/marker7")
+
+[sub_resource type="BTAction" id="BTAction_b6qgo"]
+script = ExtResource("1_eokfh")
+tolerance = 0.5
+acceleration = 40.0
+
+[sub_resource type="BTAction" id="BTAction_w5pkr"]
+script = ExtResource("11_4wwe8")
+poi_node_path = NodePath("FountainZoomies/marker8")
+
+[sub_resource type="BTAction" id="BTAction_w5agk"]
+script = ExtResource("1_eokfh")
+tolerance = 0.5
+acceleration = 40.0
+
+[sub_resource type="BTAction" id="BTAction_n5fkj"]
+script = ExtResource("11_4wwe8")
+poi_node_path = NodePath("FountainZoomies/marker")
+
+[sub_resource type="BTAction" id="BTAction_m5cqj"]
+script = ExtResource("1_eokfh")
+tolerance = 0.5
+acceleration = 40.0
+
+[sub_resource type="BTSequence" id="BTSequence_78d7v"]
+custom_name = "zoomies"
+children = [SubResource("BTAction_rac02"), SubResource("BTAction_i3jmp"), SubResource("BTAction_dqdc3"), SubResource("BTAction_fo6um"), SubResource("BTAction_arpqf"), SubResource("BTAction_aggau"), SubResource("BTAction_bq610"), SubResource("BTAction_eowps"), SubResource("BTAction_n2v3p"), SubResource("BTAction_j16be"), SubResource("BTAction_juxno"), SubResource("BTAction_xjlgd"), SubResource("BTAction_dj35w"), SubResource("BTAction_b6qgo"), SubResource("BTAction_w5pkr"), SubResource("BTAction_w5agk"), SubResource("BTAction_n5fkj"), SubResource("BTAction_m5cqj")]
+
+[sub_resource type="BTRepeat" id="BTRepeat_gcwqr"]
+times = 3
+abort_on_failure = true
+children = [SubResource("BTSequence_78d7v")]
+
+[sub_resource type="BTCooldown" id="BTCooldown_xy5jr"]
+duration = 45.0
+start_cooled = true
+children = [SubResource("BTRepeat_gcwqr")]
+
+[sub_resource type="BTRandomSelector" id="BTRandomSelector_n7di1"]
+children = [SubResource("BTSequence_qho0y"), SubResource("BTCooldown_xy5jr")]
+
 [sub_resource type="BTSelector" id="BTSelector_rwknl"]
-children = [SubResource("BTSequence_l52av"), SubResource("BTSequence_a6iiw"), SubResource("BTSequence_qho0y")]
+children = [SubResource("BTSequence_l52av"), SubResource("BTSequence_a6iiw"), SubResource("BTRandomSelector_n7di1")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_porc0")
