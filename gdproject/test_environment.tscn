@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://6i36o8ipfx1v"]
+[gd_scene load_steps=27 format=3 uid="uid://6i36o8ipfx1v"]
 
 [ext_resource type="PackedScene" uid="uid://b663n5fdhxdq6" path="res://doggo.tscn" id="1_7dki7"]
 [ext_resource type="Script" path="res://test_environment.gd" id="1_sc2j5"]
@@ -26,6 +26,10 @@ size = Vector3(1000, 10, 1000)
 size = Vector3(1000, 10, 1000)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_3e33n"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0wt5e"]
+height = 7.38379
+radius = 0.182159
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sxqlg"]
 points = PackedVector3Array(0.367622, -0.0103783, 0.157185, 0.356532, -0.0530938, 0.157185, 0.367622, -0.0103783, 0.132256, 0.356532, 0.0323371, 0.157185, 0.282248, 0.184646, 0.431496, 0.282248, -0.184686, 0.431496, 0.356532, -0.0530938, 0.132256, 0.282248, -0.184686, -0.431547, 0.282248, 0.184646, -0.431547, 0.356532, 0.0323371, 0.132256, 0.262248, 0.204682, 0.431496, 0.250626, 0.171543, 0.449697, 0.250626, -0.171583, 0.449697, 0.262248, -0.204682, 0.431496, 0.262248, -0.204682, -0.431547, 0.262248, 0.204682, -0.431547, -0.107092, 0.204682, 0.431496, 0.249125, 0.173026, 0.449697, 0.249125, -0.173066, 0.449697, -0.107092, -0.204682, 0.431496, -0.107092, -0.204682, -0.431547, -0.107092, 0.204682, -0.431547, -0.127092, 0.184646, 0.431496, -0.0940175, 0.173026, 0.449697, -0.0940175, -0.173066, 0.449697, -0.127092, -0.184686, 0.431496, -0.127092, -0.184686, -0.431547, -0.127092, 0.184646, -0.431547, -0.0954703, 0.171543, 0.449697, -0.0954703, -0.171583, 0.449697)
@@ -104,6 +108,55 @@ autoplay = true
 
 [node name="city_park_modified" parent="." instance=ExtResource("5_uimbw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.126034, 11.6718)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.71271, 0.042902, -1.19209e-07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 5.68434e-14, 0, -5.68434e-14, 1, -0.00902367, 0, 0)
+shape = SubResource("CylinderShape3D_0wt5e")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00755978, -0.00480652, -2.98023e-07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00902367, 0, 0)
+shape = SubResource("CylinderShape3D_0wt5e")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0" index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.910816, 2.46408, 7.45058e-07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 5.68434e-14, 0, -5.68434e-14, 1, -0.00902367, 0, 0)
+shape = SubResource("CylinderShape3D_0wt5e")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0" index="3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.92281, 28.256, 1.2964e-05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 5.68434e-14, 0, -5.68434e-14, 1, -0.00902367, 0, 0)
+shape = SubResource("CylinderShape3D_0wt5e")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0" index="4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.8861, 29.8205, 1.37091e-05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 5.68434e-14, 0, -5.68434e-14, 1, -0.00902367, 0, 0)
+shape = SubResource("CylinderShape3D_0wt5e")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0" index="5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 21.3175, 25.7891, 1.17421e-05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 5.68434e-14, 0, -5.68434e-14, 1, -0.00902367, 0, 0)
+shape = SubResource("CylinderShape3D_0wt5e")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0" index="6"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 23.1673, 29.359, 1.33812e-05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 5.68434e-14, 0, -5.68434e-14, 1, -0.00902367, 0, 0)
+shape = SubResource("CylinderShape3D_0wt5e")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/BOTTINO/BOTTINO_Material_002_0" index="0"]
 collision_mask = 0
