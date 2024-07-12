@@ -12,7 +12,7 @@ const VELOCITY_TURNFACING_THRESHOLD := 0.1**2
 const ANIMATIONS := {
     &"run": &"for dog|for dog|standing_Run3_001"
 }
-const MOUTH_BONE := &"WOODEN STICK"
+const MOUTH_BONE := &"L_mouth_corner_jnt.97_97"
 
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -49,9 +49,9 @@ func _physics_process(delta: float) -> void:
 
 func animate() -> void:
     mouth_snap_zone.global_transform = skeleton.global_transform * skeleton.get_bone_global_pose(mouth_bone)
-    #mouth_snap_zone.rotate_object_local(Vector3.FORWARD, PI/2.0)
-    #mouth_snap_zone.translate_object_local(Vector3.LEFT * 0.07)
-    #mouth_snap_zone.translate_object_local(Vector3.DOWN * 0.05)
+    mouth_snap_zone.rotate_object_local(Vector3.FORWARD, PI/2.0)
+    mouth_snap_zone.translate_object_local(Vector3.LEFT * 0.07)
+    mouth_snap_zone.translate_object_local(Vector3.DOWN * 0.05)
 
     var speed := velocity.length()
     animation.set("parameters/TimeScaleRun/scale", max(0.01, speed) / 5.0)  # TODO remove magic numbers

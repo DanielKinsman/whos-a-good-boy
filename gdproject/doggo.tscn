@@ -89,7 +89,7 @@ radius = 0.120048
 
 [node name="Doggo" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 720897
+collision_mask = 655361
 script = ExtResource("1_xjc8o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
