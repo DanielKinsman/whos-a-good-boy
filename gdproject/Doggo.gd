@@ -50,7 +50,8 @@ func _physics_process(delta: float) -> void:
 func animate() -> void:
     mouth_snap_zone.global_transform = skeleton.global_transform * skeleton.get_bone_global_pose(mouth_bone)
     mouth_snap_zone.rotate_object_local(Vector3.FORWARD, PI/2.0)
-    mouth_snap_zone.translate_object_local(Vector3.LEFT * 0.1)
+    mouth_snap_zone.translate_object_local(Vector3.LEFT * 0.07)
+    mouth_snap_zone.translate_object_local(Vector3.DOWN * 0.05)
 
     var speed := velocity.length()
     animation.set("parameters/TimeScaleRun/scale", max(0.01, speed) / 5.0)  # TODO remove magic numbers
