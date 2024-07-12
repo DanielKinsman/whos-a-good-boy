@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=38 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://5uojrbirt71v" path="res://assets/soundfx/pantmod.wav" id="12_7x3pq"]
 [ext_resource type="AudioStream" uid="uid://clow2ti753xpn" path="res://assets/soundfx/414350__sabotovat__wolf-run.wav" id="13_gjnrg"]
 [ext_resource type="AudioStream" uid="uid://cnkvvi8h44vq0" path="res://assets/soundfx/idlehappy.wav" id="14_43v2e"]
+[ext_resource type="AudioStream" uid="uid://cgyhpfgfgslvy" path="res://assets/soundfx/growl.wav" id="15_r6ibe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hb11"]
 radius = 0.279443
@@ -266,5 +267,9 @@ volume_db = -9.0
 [node name="AudioStreamPlayer3DBark" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.194511, -0.38432)
 stream = ExtResource("14_43v2e")
+
+[node name="AudioStreamPlayer3DGrowl" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("15_r6ibe")
+volume_db = -20.0
 
 [editable path="run"]

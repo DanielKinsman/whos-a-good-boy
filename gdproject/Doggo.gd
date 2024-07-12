@@ -36,6 +36,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var audio_pant: AudioStreamPlayer3D = $AudioStreamPlayer3DPant
 @onready var audio_feet: AudioStreamPlayer3D = $AudioStreamPlayer3DFeet
 @onready var audio_bark: AudioStreamPlayer3D = $AudioStreamPlayer3DBark
+@onready var audio_growl: AudioStreamPlayer3D = $AudioStreamPlayer3DGrowl
 
 
 func _ready() -> void:
@@ -90,13 +91,17 @@ func animate() -> void:
             audio_pant.stop()
             audio_bark.play()
     else:
-        if not audio_pant.playing:
-            audio_pant.play()
+        audio_bark.stop()
+
+    if not (audio_pant.playing or audio_bark.playing or audio_growl.playing):
+        audio_pant.play()
 
 
 func picked_up(pickable: XRToolsPickable) -> void:
     self.has_picked_up.emit(pickable)
     mouth_snap_zone.enabled = true
+    audio_pant.stop()
+    audio_growl.play()
 
 
 func dropped() -> void:
