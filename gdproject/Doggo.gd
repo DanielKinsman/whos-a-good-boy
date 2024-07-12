@@ -76,11 +76,12 @@ func animate() -> void:
 
 func picked_up(pickable: XRToolsPickable) -> void:
     self.has_picked_up.emit(pickable)
-    mouth_snap_zone.enabled = false
+    mouth_snap_zone.enabled = true
 
 
 func dropped() -> void:
     self.has_dropped.emit()
+    mouth_snap_zone.enabled = false
 
 
 func orient() -> void:

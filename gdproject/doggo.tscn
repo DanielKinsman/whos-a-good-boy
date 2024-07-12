@@ -119,7 +119,6 @@ shape = SubResource("CapsuleShape3D_0hb11")
 
 [node name="SnapZone" parent="." instance=ExtResource("2_ghrbo")]
 transform = Transform3D(-0.0309397, -0.999521, 0, 0.999521, -0.0309397, 0, 0, 0, 1, 0, 0.468588, -0.51765)
-snap_mode = 1
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
