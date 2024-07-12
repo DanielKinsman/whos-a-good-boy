@@ -11,8 +11,8 @@
 [ext_resource type="Animation" uid="uid://c8dghcftg1thx" path="res://addons/godot-xr-tools/hands/animations/right/Grip Shaft.res" id="6_325ui"]
 [ext_resource type="AudioStream" uid="uid://dhsfmmoibyfmf" path="res://assets/soundfx/60023__qubodup__swosh-windy-36.wav" id="6_axbhf"]
 [ext_resource type="AudioStream" uid="uid://dpgjpglhmumdj" path="res://assets/soundfx/632327__audacitier__knock-4.wav" id="7_flxi8"]
-[ext_resource type="AudioStream" uid="uid://cqxto423wi0r5" path="res://assets/soundfx/625687__audacitier__knock-1.wav" id="8_wwasu"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="9_s5fgo"]
+[ext_resource type="AudioStream" uid="uid://cb1x1gbi0hp7c" path="res://assets/soundfx/152413__burnsie289__stick_snap1.wav" id="10_yovba"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="13_nk1vc"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="14_jaof8"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="16_wqtl1"]
@@ -32,7 +32,7 @@ closed_pose = ExtResource("6_325ui")
 script = ExtResource("9_s5fgo")
 name = ""
 grab_sound = ExtResource("7_flxi8")
-drop_sound = ExtResource("8_wwasu")
+drop_sound = ExtResource("10_yovba")
 hit_sound = ExtResource("6_axbhf")
 
 [sub_resource type="Resource" id="Resource_rwp6h"]
