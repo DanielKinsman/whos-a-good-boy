@@ -66,6 +66,10 @@ func animate() -> void:
     var speed := velocity.length()
     animation.set("parameters/TimeScaleRun/scale", max(0.01, speed) / 5.0)  # TODO remove magic numbers
 
+    var blend_target := 1.0 if petting_left or petting_right else 0.0
+    var blend_current: float = animation.get("parameters/Blendpat/blend_amount")
+    animation.set("parameters/Blendpat/blend_amount", lerpf(blend_current, blend_target, 0.1))
+
     if is_on_floor():
         if speed > 1.0:
             animation.set("parameters/Transition/transition_request", "running")

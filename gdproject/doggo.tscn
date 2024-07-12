@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=32 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
@@ -16,8 +16,9 @@
 radius = 0.279443
 height = 1.16629
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3sf4"]
-animation = &"Idel happy Dog"
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_oer3v"]
+filter_enabled = true
+filters = ["for dog/Skeleton3D:L_brow_1_jnt.81_81", "for dog/Skeleton3D:L_brow_2_jnt.80_80", "for dog/Skeleton3D:L_brow_3_jnt.79_79", "for dog/Skeleton3D:L_brow_4_jnt.78_78", "for dog/Skeleton3D:L_ear_base_jnt.66_66", "for dog/Skeleton3D:L_ear_tip_jnt.67_67", "for dog/Skeleton3D:L_eye_jnt.71_71", "for dog/Skeleton3D:L_lower_lid_jnt.63_63", "for dog/Skeleton3D:L_squint_jnt.59_59", "for dog/Skeleton3D:L_upper_lid_jnt.61_61", "for dog/Skeleton3D:R_brow_1_jnt.81_81", "for dog/Skeleton3D:R_brow_2_jnt.80_80", "for dog/Skeleton3D:R_brow_3_jnt.79_79", "for dog/Skeleton3D:R_brow_4_jnt.78_78", "for dog/Skeleton3D:R_brow_5_jnt.77_77", "for dog/Skeleton3D:R_ear_base_jnt.66_66", "for dog/Skeleton3D:R_ear_tip_jnt.67_67", "for dog/Skeleton3D:R_eye_jnt.71_71", "for dog/Skeleton3D:R_lower_lid_jnt.63_63", "for dog/Skeleton3D:R_squint_jnt.59_59", "for dog/Skeleton3D:R_upper_lid_jnt.61_61"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qmbo3"]
 fadein_time = 0.25
@@ -40,6 +41,9 @@ input_2/name = "bark"
 input_2/auto_advance = false
 input_2/reset = true
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3sf4"]
+animation = &"Idel happy Dog"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ou121"]
 animation = &"BarkDog"
 
@@ -49,12 +53,16 @@ animation = &"Dog_Idel"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_is2qy"]
 animation = &"jump"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_flbtp"]
+animation = &"Dog_Idel When_head_pat"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3cf8x"]
 animation = &"standing_Run3"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gsat2"]
-nodes/Animation/node = SubResource("AnimationNodeAnimation_l3sf4")
-nodes/Animation/position = Vector2(700, 320)
+graph_offset = Vector2(-24, -151)
+nodes/Blendpat/node = SubResource("AnimationNodeBlend2_oer3v")
+nodes/Blendpat/position = Vector2(740, -100)
 nodes/OneShotBark/node = SubResource("AnimationNodeOneShot_qmbo3")
 nodes/OneShotBark/position = Vector2(1360, 80)
 nodes/OneShotJump/node = SubResource("AnimationNodeOneShot_e1lwo")
@@ -63,16 +71,20 @@ nodes/TimeScaleRun/node = SubResource("AnimationNodeTimeScale_6xa4w")
 nodes/TimeScaleRun/position = Vector2(600, 180)
 nodes/Transition/node = SubResource("AnimationNodeTransition_i47yo")
 nodes/Transition/position = Vector2(920, 100)
-nodes/bark/node = SubResource("AnimationNodeAnimation_ou121")
-nodes/bark/position = Vector2(1200, 200)
+"nodes/bark ground/node" = SubResource("AnimationNodeAnimation_l3sf4")
+"nodes/bark ground/position" = Vector2(660, 360)
+"nodes/bark stand/node" = SubResource("AnimationNodeAnimation_ou121")
+"nodes/bark stand/position" = Vector2(1200, 200)
 nodes/idle/node = SubResource("AnimationNodeAnimation_0nn0e")
 nodes/idle/position = Vector2(340, 80)
 nodes/jump/node = SubResource("AnimationNodeAnimation_is2qy")
 nodes/jump/position = Vector2(1340, 320)
 nodes/output/position = Vector2(2000, 120)
+nodes/pats/node = SubResource("AnimationNodeAnimation_flbtp")
+nodes/pats/position = Vector2(400, -120)
 nodes/running/node = SubResource("AnimationNodeAnimation_3cf8x")
 nodes/running/position = Vector2(320, 220)
-node_connections = [&"OneShotBark", 0, &"Transition", &"OneShotBark", 1, &"bark", &"OneShotJump", 0, &"OneShotBark", &"OneShotJump", 1, &"jump", &"TimeScaleRun", 0, &"running", &"Transition", 0, &"idle", &"Transition", 1, &"TimeScaleRun", &"Transition", 2, &"Animation", &"output", 0, &"OneShotJump"]
+node_connections = [&"Blendpat", 0, &"idle", &"Blendpat", 1, &"pats", &"OneShotBark", 0, &"Transition", &"OneShotBark", 1, &"bark stand", &"OneShotJump", 0, &"OneShotBark", &"OneShotJump", 1, &"jump", &"TimeScaleRun", 0, &"running", &"Transition", 0, &"Blendpat", &"Transition", 1, &"TimeScaleRun", &"Transition", 2, &"bark ground", &"output", 0, &"OneShotJump"]
 
 [sub_resource type="Resource" id="Resource_jvbit"]
 script = ExtResource("7_na0lm")
@@ -125,6 +137,7 @@ active = false
 root_node = NodePath("../run")
 tree_root = SubResource("AnimationNodeBlendTree_gsat2")
 anim_player = NodePath("../run/AnimationPlayer")
+parameters/Blendpat/blend_amount = 0
 parameters/OneShotBark/active = false
 parameters/OneShotBark/internal_active = false
 parameters/OneShotBark/request = 0
