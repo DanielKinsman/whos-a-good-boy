@@ -117,7 +117,7 @@ parameters/Transition/transition_request = ""
 parameters/Transition/current_index = 0
 
 [node name="run" parent="." instance=ExtResource("3_cmwxw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.121873, 0)
 
 [node name="HandPoseArea" parent="." instance=ExtResource("4_7j8er")]
 left_pose = SubResource("Resource_jvbit")
