@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://6i36o8ipfx1v"]
+[gd_scene load_steps=28 format=3 uid="uid://6i36o8ipfx1v"]
 
 [ext_resource type="PackedScene" uid="uid://b663n5fdhxdq6" path="res://doggo.tscn" id="1_7dki7"]
 [ext_resource type="Script" path="res://test_environment.gd" id="1_sc2j5"]
 [ext_resource type="Texture2D" uid="uid://d15cc78cpt53" path="res://assets/skybox/clouds_anime_6k.jpg" id="2_j6nbh"]
 [ext_resource type="PackedScene" uid="uid://cqnfjkusrkly" path="res://stick.tscn" id="3_57ecf"]
 [ext_resource type="BehaviorTree" uid="uid://cbcval5mrgh05" path="res://ai/trees/behavior_tree.tres" id="4_m3s4m"]
+[ext_resource type="AudioStream" uid="uid://d3epa4qe3wybn" path="res://assets/music/SHIBAwithMELODY.mp3" id="5_i0f5d"]
 [ext_resource type="PackedScene" uid="uid://ba63e82ruguk3" path="res://assets/city_park_at_sunset/city_park_modified.glb" id="5_uimbw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_usq3m"]
@@ -104,6 +105,7 @@ behavior_tree = ExtResource("4_m3s4m")
 blackboard_plan = SubResource("BlackboardPlan_3e33n")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_i0f5d")
 autoplay = true
 
 [node name="city_park_modified" parent="." instance=ExtResource("5_uimbw")]

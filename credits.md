@@ -1,5 +1,10 @@
-Programming by Daniel Kinsman https://copper-tunic.itch.io/
-3D Modelling and Animation by Leocavesoul https://leoscavesoul.itch.io/
+## Programming by Daniel Kinsman https://copper-tunic.itch.io/
+## 3D Modelling and Animation by Leocavesoul https://leoscavesoul.itch.io/
+## Music Composition by Chaz Cisneros https://www.ethanchazscoring.com
+
+
+
+### Additional assets:
 
 Soundfx by AUDACITIER ( https://freesound.org/people/AUDACITIER/ ) 
 Soundfx by qubodup -- https://freesound.org/s/60023/
