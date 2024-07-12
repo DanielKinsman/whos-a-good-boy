@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=64 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=60 format=3 uid="uid://cbcval5mrgh05"]
 
 [ext_resource type="Script" path="res://ai/tasks/move_target_follow_human_held_object.gd" id="1_3iueq"]
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
@@ -28,23 +28,9 @@ script = ExtResource("4_cs5md")
 [sub_resource type="BTAction" id="BTAction_rkxp1"]
 script = ExtResource("3_8bmm2")
 
-[sub_resource type="BTComment" id="BTComment_ogrks"]
-custom_name = "TODO wait while oneshot active instead of manually doing it"
-
-[sub_resource type="BTWait" id="BTWait_alnsa"]
-duration = 0.8
-children = [SubResource("BTComment_ogrks")]
-
-[sub_resource type="BTSequence" id="BTSequence_kt7u8"]
-children = [SubResource("BTAction_mwiie"), SubResource("BTAction_rkxp1"), SubResource("BTWait_alnsa")]
-
-[sub_resource type="BTCooldown" id="BTCooldown_xmsqj"]
-duration = 5.0
-children = [SubResource("BTSequence_kt7u8")]
-
 [sub_resource type="BTSequence" id="BTSequence_l52av"]
 custom_name = "wait_for_throw"
-children = [SubResource("BTAction_mfio2"), SubResource("BTAction_fp5tn"), SubResource("BTCooldown_xmsqj")]
+children = [SubResource("BTAction_mfio2"), SubResource("BTAction_fp5tn"), SubResource("BTAction_mwiie"), SubResource("BTAction_rkxp1")]
 
 [sub_resource type="BTAction" id="BTAction_yo603"]
 script = ExtResource("1_xly74")
