@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=36 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="10_td8s6"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="11_80bhy"]
 [ext_resource type="AudioStream" uid="uid://5uojrbirt71v" path="res://assets/soundfx/pantmod.wav" id="12_7x3pq"]
+[ext_resource type="AudioStream" uid="uid://clow2ti753xpn" path="res://assets/soundfx/414350__sabotovat__wolf-run.wav" id="13_gjnrg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hb11"]
 radius = 0.279443
@@ -200,9 +201,15 @@ event = SubResource("Resource_vatjv")
 script = ExtResource("10_td8s6")
 event = SubResource("Resource_amb8j")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3DPant" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.540892, -0.453358)
 stream = ExtResource("12_7x3pq")
 volume_db = -30.0
 autoplay = true
+
+[node name="AudioStreamPlayer3DFeet" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.169045, 0)
+stream = ExtResource("13_gjnrg")
+volume_db = -9.0
 
 [editable path="run"]
