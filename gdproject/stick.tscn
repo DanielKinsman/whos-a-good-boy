@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cqnfjkusrkly"]
+[gd_scene load_steps=22 format=3 uid="uid://cqnfjkusrkly"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_jx0gd"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_r634s"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="9_s5fgo"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="13_nk1vc"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="14_jaof8"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="16_wqtl1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wls2q"]
 size = Vector3(0.0332031, 0.874218, 0.140817)
@@ -71,5 +72,7 @@ pickable_audio_type = SubResource("Resource_kgpuf")
 [node name="XRToolsRumbler" type="Node" parent="." index="6"]
 script = ExtResource("13_nk1vc")
 event = SubResource("Resource_rwp6h")
+
+[node name="HighlightRing" parent="." index="7" instance=ExtResource("16_wqtl1")]
 
 [editable path="Stick For DOG"]

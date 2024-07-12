@@ -39,6 +39,7 @@ laser_length = 1
 target_radius = 0.001
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="4" instance=ExtResource("8_rhang")]
+ranged_angle = 15.0
 
 [node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="5" instance=ExtResource("8_j7d1k")]
 
@@ -55,6 +56,7 @@ laser_length = 1
 target_radius = 0.001
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" instance=ExtResource("8_rhang")]
+ranged_angle = 15.0
 
 [node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="4" instance=ExtResource("11_4bnpw")]
 
