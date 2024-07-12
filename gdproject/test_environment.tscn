@@ -394,10 +394,10 @@ shape = SubResource("ConvexPolygonShape3D_yk0bh")
 [node name="Sticks" type="Node3D" parent="."]
 
 [node name="Stick" parent="Sticks" instance=ExtResource("3_57ecf")]
-transform = Transform3D(-0.333001, 0.942927, -4.12166e-08, 0, -4.37114e-08, -1, -0.942927, -0.333001, 1.45559e-08, 0, 0.0249998, -2.8747)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0166017, -1.57221)
 
 [node name="Stick2" parent="Sticks" instance=ExtResource("3_57ecf")]
-transform = Transform3D(0.898212, -0.439563, 1.92139e-08, 0, -4.37114e-08, -1, 0.439563, 0.898212, -3.92621e-08, 0, 0.0250002, 2.38475)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -12.7519, 1.37669, 2.38475)
 
 [node name="Stick3" parent="Sticks" instance=ExtResource("3_57ecf")]
 transform = Transform3D(-0.141074, 0.989999, -4.32742e-08, 0, -4.37114e-08, -1, -0.989999, -0.141074, 6.16654e-09, 11.8437, -0.0139422, 8.11398)
