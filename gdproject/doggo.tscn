@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=37 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="11_80bhy"]
 [ext_resource type="AudioStream" uid="uid://5uojrbirt71v" path="res://assets/soundfx/pantmod.wav" id="12_7x3pq"]
 [ext_resource type="AudioStream" uid="uid://clow2ti753xpn" path="res://assets/soundfx/414350__sabotovat__wolf-run.wav" id="13_gjnrg"]
+[ext_resource type="AudioStream" uid="uid://cnkvvi8h44vq0" path="res://assets/soundfx/idlehappy.wav" id="14_43v2e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hb11"]
 radius = 0.279443
@@ -161,6 +162,56 @@ parameters/Transition/current_index = 0
 [node name="run" parent="." instance=ExtResource("3_cmwxw")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.121873, 0)
 
+[node name="Skeleton3D" parent="run/for dog" index="0"]
+bones/4/rotation = Quaternion(0.383885, -0.0350977, -0.0725088, 0.91986)
+bones/5/rotation = Quaternion(0.0535533, 0.554848, 0.470093, 0.684316)
+bones/5/scale = Vector3(0.999988, 0.999997, 1.00001)
+bones/6/rotation = Quaternion(-0.186302, 0.213555, 0.509067, 0.812734)
+bones/7/rotation = Quaternion(2.98023e-08, -1.27833e-08, 3.02433e-09, 1)
+bones/8/rotation = Quaternion(-0.317926, -0.17211, 0.0156752, 0.932231)
+bones/9/rotation = Quaternion(-0.646648, -0.262356, 0.0265614, 0.715759)
+bones/9/scale = Vector3(0.999997, 0.999991, 1.00001)
+bones/11/rotation = Quaternion(0.684637, 0.00920164, 0.0146741, 0.728678)
+bones/14/rotation = Quaternion(0.0229863, 0.848357, -0.528878, 0.00711707)
+bones/32/rotation = Quaternion(0.684637, -0.00920232, -0.0146735, 0.728678)
+bones/33/rotation = Quaternion(0.400056, 0.0133298, -0.0338082, 0.91577)
+bones/34/rotation = Quaternion(-0.455094, -0.0214988, 0.0255828, 0.889816)
+bones/35/rotation = Quaternion(-0.0229863, 0.848357, -0.528878, -0.00711707)
+bones/52/rotation = Quaternion(0.712472, 4.78379e-05, -1.4057e-05, 0.701701)
+bones/53/rotation = Quaternion(0.705302, 0.0215991, -0.0312329, 0.707889)
+bones/55/rotation = Quaternion(-0.304131, -2.27124e-07, -5.07572e-07, 0.95263)
+bones/56/rotation = Quaternion(-0.186689, 0.0747421, -0.0663648, 0.977321)
+bones/57/rotation = Quaternion(-0.000455959, 0.159084, 0.0074625, 0.987237)
+bones/60/position = Vector3(0.0644917, 0.108268, 0.0687508)
+bones/62/position = Vector3(-0.0190286, 0.0210451, -0.00612179)
+bones/64/position = Vector3(-0.0119964, 0.0247081, 0.00503583)
+bones/65/position = Vector3(-0.0645032, 0.108268, 0.0687507)
+bones/67/position = Vector3(0.0190286, 0.0210452, -0.00612181)
+bones/69/position = Vector3(0.0119965, 0.0247082, 0.00503582)
+bones/70/rotation = Quaternion(0.438865, -0.0858152, 0.17623, 0.876913)
+bones/72/rotation = Quaternion(0.438827, -0.0860627, 0.176745, 0.876804)
+bones/87/rotation = Quaternion(0.470913, 0.0189714, 0.00270385, 0.881972)
+bones/88/position = Vector3(1.87338e-08, 0.032778, 0.0208755)
+bones/91/rotation = Quaternion(-0.124842, -0.00227697, 0.00506626, 0.992161)
+bones/92/rotation = Quaternion(0.355077, 0.00324452, -0.0113477, 0.934763)
+bones/93/rotation = Quaternion(0.325354, -0.000304651, -0.00136624, 0.945591)
+bones/105/position = Vector3(0.0642464, 0.158451, 0.0263934)
+bones/106/position = Vector3(0.0466886, 0.163743, 0.0349384)
+bones/107/position = Vector3(0.0288205, 0.161565, 0.0446524)
+bones/108/position = Vector3(0.0100721, 0.158924, 0.0524269)
+bones/110/rotation = Quaternion(0.0513996, 0.370169, 0.0693131, 0.924948)
+bones/111/position = Vector3(-0.0792222, 0.145514, 0.0215575)
+bones/112/position = Vector3(-0.0642578, 0.158451, 0.0263932)
+bones/113/position = Vector3(-0.0467, 0.163743, 0.0349384)
+bones/114/position = Vector3(-0.0288319, 0.161565, 0.0446523)
+bones/115/position = Vector3(-0.0100835, 0.158924, 0.0524269)
+bones/117/rotation = Quaternion(0.0513997, -0.370169, -0.0693132, 0.924948)
+bones/124/rotation = Quaternion(0.275303, 0.0429858, 0.139576, 0.9502)
+bones/125/rotation = Quaternion(-0.271048, 0.0241168, -0.0350511, 0.961625)
+bones/146/rotation = Quaternion(0.294874, 0.000117647, -0.0938618, 0.950915)
+bones/147/rotation = Quaternion(-0.265404, -0.0241569, 0.0343211, 0.963223)
+bones/149/rotation = Quaternion(0.00471303, 0.838131, -0.545447, -0.00133071)
+
 [node name="HandPoseArea" parent="." instance=ExtResource("4_7j8er")]
 left_pose = SubResource("Resource_jvbit")
 right_pose = SubResource("Resource_aeros")
@@ -211,5 +262,9 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.169045, 0)
 stream = ExtResource("13_gjnrg")
 volume_db = -9.0
+
+[node name="AudioStreamPlayer3DBark" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.194511, -0.38432)
+stream = ExtResource("14_43v2e")
 
 [editable path="run"]

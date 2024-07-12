@@ -33,7 +33,9 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var function_pickup_right: XRToolsFunctionPickup = null
 @onready var petting_left := false
 @onready var petting_right := false
+@onready var audio_pant: AudioStreamPlayer3D = $AudioStreamPlayer3DPant
 @onready var audio_feet: AudioStreamPlayer3D = $AudioStreamPlayer3DFeet
+@onready var audio_bark: AudioStreamPlayer3D = $AudioStreamPlayer3DBark
 
 
 func _ready() -> void:
@@ -82,6 +84,14 @@ func animate() -> void:
                 animation.set("parameters/Transition/transition_request", "idle")
     else:
         audio_feet.stop()
+
+    if animation.get("parameters/Transition/current_state") == "bark":
+        if not audio_bark.playing:
+            audio_pant.stop()
+            audio_bark.play()
+    else:
+        if not audio_pant.playing:
+            audio_pant.play()
 
 
 func picked_up(pickable: XRToolsPickable) -> void:
