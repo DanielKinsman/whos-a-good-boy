@@ -28,6 +28,4 @@ func _tick(delta: float) -> Status:
         else:
             dog.velocity -= ground_vector_to_target.normalized() * ACCELERATION * delta
 
-        # TODO jumping
-
     return RUNNING

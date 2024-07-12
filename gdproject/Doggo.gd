@@ -60,7 +60,8 @@ func animate() -> void:
         if speed > 1.0:
             animation.set("parameters/Transition/transition_request", "running")
         else:
-            animation.set("parameters/Transition/transition_request", "idle")
+            if animation.get("parameters/Transition/current_state") != "bark":
+                animation.set("parameters/Transition/transition_request", "idle")
 
 
 func picked_up(pickable: XRToolsPickable) -> void:

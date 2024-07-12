@@ -12,5 +12,5 @@ func _enter() -> void:
 
 func _tick(_delta: float) -> Status:
     dog.orient_target = ag.get_camera()
-    dog.animation.set("parameters/OneShotBark/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+    dog.animation.set("parameters/Transition/transition_request", "bark")
     return SUCCESS

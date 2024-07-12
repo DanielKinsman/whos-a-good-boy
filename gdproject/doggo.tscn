@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b663n5fdhxdq6"]
+[gd_scene load_steps=26 format=3 uid="uid://b663n5fdhxdq6"]
 
 [ext_resource type="Script" path="res://Doggo.gd" id="1_xjc8o"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ghrbo"]
@@ -13,6 +13,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hb11"]
 radius = 0.279443
 height = 1.16629
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3sf4"]
+animation = &"Idel happy Dog"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qmbo3"]
 fadein_time = 0.25
@@ -48,16 +51,18 @@ animation = &"jump"
 animation = &"standing_Run3"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gsat2"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_l3sf4")
+nodes/Animation/position = Vector2(700, 320)
 nodes/OneShotBark/node = SubResource("AnimationNodeOneShot_qmbo3")
 nodes/OneShotBark/position = Vector2(1360, 80)
 nodes/OneShotJump/node = SubResource("AnimationNodeOneShot_e1lwo")
 nodes/OneShotJump/position = Vector2(1680, 80)
 nodes/TimeScaleRun/node = SubResource("AnimationNodeTimeScale_6xa4w")
-nodes/TimeScaleRun/position = Vector2(660, 220)
+nodes/TimeScaleRun/position = Vector2(600, 180)
 nodes/Transition/node = SubResource("AnimationNodeTransition_i47yo")
 nodes/Transition/position = Vector2(920, 100)
 nodes/bark/node = SubResource("AnimationNodeAnimation_ou121")
-nodes/bark/position = Vector2(1080, 200)
+nodes/bark/position = Vector2(1200, 200)
 nodes/idle/node = SubResource("AnimationNodeAnimation_0nn0e")
 nodes/idle/position = Vector2(340, 80)
 nodes/jump/node = SubResource("AnimationNodeAnimation_is2qy")
@@ -65,7 +70,7 @@ nodes/jump/position = Vector2(1340, 320)
 nodes/output/position = Vector2(2000, 120)
 nodes/running/node = SubResource("AnimationNodeAnimation_3cf8x")
 nodes/running/position = Vector2(320, 220)
-node_connections = [&"OneShotBark", 0, &"Transition", &"OneShotBark", 1, &"bark", &"OneShotJump", 0, &"OneShotBark", &"OneShotJump", 1, &"jump", &"TimeScaleRun", 0, &"running", &"Transition", 0, &"idle", &"Transition", 1, &"TimeScaleRun", &"output", 0, &"OneShotJump"]
+node_connections = [&"OneShotBark", 0, &"Transition", &"OneShotBark", 1, &"bark", &"OneShotJump", 0, &"OneShotBark", &"OneShotJump", 1, &"jump", &"TimeScaleRun", 0, &"running", &"Transition", 0, &"idle", &"Transition", 1, &"TimeScaleRun", &"Transition", 2, &"Animation", &"output", 0, &"OneShotJump"]
 
 [sub_resource type="Resource" id="Resource_jvbit"]
 script = ExtResource("7_na0lm")
