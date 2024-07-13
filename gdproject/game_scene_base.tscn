@@ -31,7 +31,6 @@ unshaded = true
 scene_properties_keys = PackedStringArray("wrist_ui.gd")
 
 [node name="MovementDirect" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" instance=ExtResource("4_56n87")]
-strafe = true
 
 [node name="FunctionPointer" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" instance=ExtResource("10_0a2lu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
