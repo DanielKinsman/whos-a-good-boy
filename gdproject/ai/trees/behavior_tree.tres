@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=64 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=77 format=3 uid="uid://cbcval5mrgh05"]
 
 [ext_resource type="Script" path="res://ai/tasks/move_target_follow_human_held_object.gd" id="1_3iueq"]
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
@@ -12,6 +12,9 @@
 [ext_resource type="Script" path="res://ai/tasks/clear_thrown_objects.gd" id="10_3ocfg"]
 [ext_resource type="Script" path="res://ai/tasks/move_target_poi.gd" id="11_4wwe8"]
 [ext_resource type="Script" path="res://ai/tasks/is_being_petted.gd" id="11_x2mbd"]
+[ext_resource type="Script" path="res://ai/tasks/move_target_random_child.gd" id="13_evi4s"]
+[ext_resource type="Script" path="res://ai/tasks/bark_at_poi.gd" id="14_3lyyn"]
+[ext_resource type="Script" path="res://ai/tasks/clear_move_and_orient_targets.gd" id="15_htmox"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_porc0"]
 
@@ -195,14 +198,48 @@ custom_name = "zoomies"
 children = [SubResource("BTAction_rac02"), SubResource("BTAction_i3jmp"), SubResource("BTAction_dqdc3"), SubResource("BTAction_fo6um"), SubResource("BTAction_arpqf"), SubResource("BTAction_aggau"), SubResource("BTAction_bq610"), SubResource("BTAction_eowps"), SubResource("BTAction_n2v3p"), SubResource("BTAction_j16be"), SubResource("BTAction_juxno"), SubResource("BTAction_xjlgd"), SubResource("BTAction_dj35w"), SubResource("BTAction_b6qgo"), SubResource("BTAction_w5pkr"), SubResource("BTAction_w5agk"), SubResource("BTAction_n5fkj"), SubResource("BTAction_m5cqj")]
 
 [sub_resource type="BTRepeat" id="BTRepeat_gcwqr"]
-times = 3
+times = 2
 abort_on_failure = true
 children = [SubResource("BTSequence_78d7v")]
+
+[sub_resource type="BTAction" id="BTAction_q1eou"]
+script = ExtResource("13_evi4s")
+poi_nodes_path = NodePath("BarkPOIs")
+
+[sub_resource type="BTAction" id="BTAction_01kdb"]
+script = ExtResource("1_eokfh")
+tolerance = 1.0
+acceleration = 40.0
+
+[sub_resource type="BTAction" id="BTAction_6m6k2"]
+script = ExtResource("4_cs5md")
+
+[sub_resource type="BTAction" id="BTAction_2h7wc"]
+script = ExtResource("14_3lyyn")
+
+[sub_resource type="BTWait" id="BTWait_8nvvc"]
+duration = 0.2
+
+[sub_resource type="BTAction" id="BTAction_qybaw"]
+script = ExtResource("15_htmox")
+
+[sub_resource type="BTWait" id="BTWait_56m58"]
+duration = 2.0
+
+[sub_resource type="BTSequence" id="BTSequence_5jhau"]
+children = [SubResource("BTAction_q1eou"), SubResource("BTAction_01kdb"), SubResource("BTAction_6m6k2"), SubResource("BTAction_2h7wc"), SubResource("BTWait_8nvvc"), SubResource("BTAction_qybaw"), SubResource("BTWait_56m58")]
+
+[sub_resource type="BTTimeLimit" id="BTTimeLimit_oksxr"]
+time_limit = 20.0
+children = [SubResource("BTSequence_5jhau")]
+
+[sub_resource type="BTRandomSelector" id="BTRandomSelector_6toks"]
+children = [SubResource("BTRepeat_gcwqr"), SubResource("BTTimeLimit_oksxr")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_xy5jr"]
 duration = 60.0
 start_cooled = true
-children = [SubResource("BTRepeat_gcwqr")]
+children = [SubResource("BTRandomSelector_6toks")]
 
 [sub_resource type="BTRandomSelector" id="BTRandomSelector_n7di1"]
 children = [SubResource("BTSequence_qho0y"), SubResource("BTCooldown_xy5jr")]

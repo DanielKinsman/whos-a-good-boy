@@ -489,4 +489,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000634909, 0, -3.66486)
 [node name="marker8" type="Marker3D" parent="FountainZoomies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49342, 0, -2.67284)
 
+[node name="BarkPOIs" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4116, 1.26214, -9.87755)
+
+[node name="Marker3D2" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5891, 1.52112, -17.7724)
+
+[node name="Marker3D3" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6931, 2.60999, -14.5533)
+
+[node name="Marker3D4" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8804, -2.38419e-07, 7.81895)
+
+[node name="Marker3D5" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0261455, -1.19209e-07, 13.0605)
+
+[node name="Marker3D6" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6773, 2.1558, 40.4801)
+
+[node name="Marker3D7" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2344, 1.30576, 39.4488)
+
+[node name="Marker3D8" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6563, -4.76837e-07, 15.2134)
+
+[node name="Marker3D9" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9291, 0, 7.80125)
+
+[node name="Marker3D10" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18981, 0, -16.1427)
+
+[node name="Marker3D11" type="Marker3D" parent="BarkPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42101, 0, 40.6866)
+
 [editable path="city_park_modified"]
