@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://6i36o8ipfx1v"]
+[gd_scene load_steps=29 format=3 uid="uid://6i36o8ipfx1v"]
 
 [ext_resource type="PackedScene" uid="uid://b663n5fdhxdq6" path="res://doggo.tscn" id="1_7dki7"]
 [ext_resource type="Script" path="res://test_environment.gd" id="1_sc2j5"]
@@ -25,6 +25,9 @@ size = Vector3(1000, 10, 1000)
 
 [sub_resource type="BoxMesh" id="BoxMesh_h2lje"]
 size = Vector3(1000, 10, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ki7ka"]
+albedo_color = Color(0.683594, 0.570153, 0.418441, 1)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_3e33n"]
 
@@ -94,8 +97,8 @@ collision_mask = 0
 shape = SubResource("BoxShape3D_np36m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-visible = false
 mesh = SubResource("BoxMesh_h2lje")
+surface_material_override/0 = SubResource("StandardMaterial3D_ki7ka")
 
 [node name="Doggo" parent="." instance=ExtResource("1_7dki7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114549, 4.72986)
@@ -109,7 +112,7 @@ stream = ExtResource("5_i0f5d")
 autoplay = true
 
 [node name="city_park_modified" parent="." instance=ExtResource("5_uimbw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.126034, 11.6718)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 11.672)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/abete/abete_lowpolytex_0" index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.71271, 0.042902, -1.19209e-07)
@@ -385,6 +388,9 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/terriccio/terriccio_lowpolytex_0/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_sxxii")
+
+[node name="terriccio_001_terriccio_0" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/terriccio_001" index="0"]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="city_park_modified/Sketchfab_model/2e6e3a56b6f4412db7eb377c179d50a9_fbx/RootNode/volpe/volpe_Material_001_0" index="0"]
 collision_mask = 0
