@@ -89,10 +89,14 @@ func animate() -> void:
     else:
         audio_feet.stop()
 
-    if animation.get("parameters/Transition/current_state") == "bark":
+    if (animation.get("parameters/Transition/current_state") == "bark" or
+            animation.get("parameters/OneShotBark/active")):
         if not audio_bark.playing:
             audio_pant.stop()
-            audio_bark.play()
+            if animation.get("parameters/OneShotBark/active"):
+                audio_bark.play(0.5)  # hacky
+            else:
+                audio_bark.play()
     else:
         audio_bark.stop()
 

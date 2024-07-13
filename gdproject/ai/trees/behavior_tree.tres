@@ -229,17 +229,17 @@ duration = 2.0
 [sub_resource type="BTSequence" id="BTSequence_5jhau"]
 children = [SubResource("BTAction_q1eou"), SubResource("BTAction_01kdb"), SubResource("BTAction_6m6k2"), SubResource("BTAction_2h7wc"), SubResource("BTWait_8nvvc"), SubResource("BTAction_qybaw"), SubResource("BTWait_56m58")]
 
-[sub_resource type="BTTimeLimit" id="BTTimeLimit_oksxr"]
-time_limit = 20.0
-children = [SubResource("BTSequence_5jhau")]
-
 [sub_resource type="BTRandomSelector" id="BTRandomSelector_6toks"]
-children = [SubResource("BTRepeat_gcwqr"), SubResource("BTTimeLimit_oksxr")]
+children = [SubResource("BTRepeat_gcwqr"), SubResource("BTSequence_5jhau")]
+
+[sub_resource type="BTTimeLimit" id="BTTimeLimit_vio2s"]
+time_limit = 20.0
+children = [SubResource("BTRandomSelector_6toks")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_xy5jr"]
 duration = 60.0
 start_cooled = true
-children = [SubResource("BTRandomSelector_6toks")]
+children = [SubResource("BTTimeLimit_vio2s")]
 
 [sub_resource type="BTRandomSelector" id="BTRandomSelector_n7di1"]
 children = [SubResource("BTSequence_qho0y"), SubResource("BTCooldown_xy5jr")]
