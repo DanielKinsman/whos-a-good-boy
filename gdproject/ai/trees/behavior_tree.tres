@@ -212,7 +212,7 @@ poi_nodes_path = NodePath("BarkPOIs")
 [sub_resource type="BTAction" id="BTAction_01kdb"]
 script = ExtResource("1_eokfh")
 tolerance = 1.0
-acceleration = 40.0
+acceleration = 30.0
 
 [sub_resource type="BTAction" id="BTAction_6m6k2"]
 script = ExtResource("4_cs5md")
