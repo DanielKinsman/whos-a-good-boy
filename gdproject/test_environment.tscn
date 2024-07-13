@@ -402,7 +402,7 @@ shape = SubResource("ConvexPolygonShape3D_yk0bh")
 [node name="Sticks" type="Node3D" parent="."]
 
 [node name="Stick" parent="Sticks" instance=ExtResource("3_57ecf")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0166017, -1.57221)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1.53136, 0.0166017, -3.96144)
 
 [node name="Stick2" parent="Sticks" instance=ExtResource("3_57ecf")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -12.7519, 1.37669, 2.38475)
@@ -415,6 +415,24 @@ transform = Transform3D(-0.293056, -0.956095, 4.17923e-08, 0, -4.37114e-08, -1, 
 
 [node name="Stick5" parent="Sticks" instance=ExtResource("3_57ecf")]
 transform = Transform3D(-0.911403, -0.411514, 1.79879e-08, 0, -4.37114e-08, -1, 0.411514, -0.911403, 3.98387e-08, -18.9953, 0.00186825, 10.4844)
+
+[node name="Stick6" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.911403, -0.411514, 1.79879e-08, 0, -4.37114e-08, -1, 0.411514, -0.911403, 3.98387e-08, -11.941, 1.34575, -3.4463)
+
+[node name="Stick7" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.911403, -0.411514, 1.79879e-08, 0, -4.37114e-08, -1, 0.411514, -0.911403, 3.98387e-08, 13.177, 1.05506, -3.4463)
+
+[node name="Stick8" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.911403, -0.411514, 1.79879e-08, 0, -4.37114e-08, -1, 0.411514, -0.911403, 3.98387e-08, 12.8593, 1.22787, 25.9432)
+
+[node name="Stick9" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.911403, -0.411514, 1.79879e-08, 0, -4.37114e-08, -1, 0.411514, -0.911403, 3.98387e-08, -14.6482, 1.29812, 25.9432)
+
+[node name="Stick10" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.911403, -0.411514, 1.79879e-08, 0, -4.37114e-08, -1, 0.411514, -0.911403, 3.98387e-08, -1.3065, 0.0427276, 15.9178)
+
+[node name="Stick11" parent="Sticks" instance=ExtResource("3_57ecf")]
+transform = Transform3D(-0.911403, -0.411514, 1.79879e-08, 0, -4.37114e-08, -1, 0.411514, -0.911403, 3.98387e-08, -0.0669146, 0.0427274, -16.3642)
 
 [node name="StaticBody3DWall1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 49.2064, -69.9865)
