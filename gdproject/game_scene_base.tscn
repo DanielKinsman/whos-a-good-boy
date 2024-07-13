@@ -67,6 +67,7 @@ impulse_factor = 1.5
 [node name="FunctionPoseDetector" parent="XROrigin3D/RightHand/CollisionHandRight" index="5" instance=ExtResource("9_qwcq2")]
 
 [node name="FunctionTeleport" parent="XROrigin3D/RightHand/CollisionHandRight" index="6" instance=ExtResource("10_aj20d")]
+teleport_button_action = "ax_button"
 rotation_action = ""
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("8_3b6xx")]
