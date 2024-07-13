@@ -2,7 +2,7 @@
 extends BTAction
 
 @export_range(0.0, 100.0) var tolerance := 0.25
-@export_range(1.0, 50.0) var acceleration := 20.0
+@export_range(1.0, 80.0) var acceleration := 20.0
 var dog: Doggo
 
 

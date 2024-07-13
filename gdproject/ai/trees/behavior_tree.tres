@@ -116,7 +116,7 @@ poi_node_path = NodePath("FountainZoomies/marker")
 [sub_resource type="BTAction" id="BTAction_i3jmp"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
-acceleration = 40.0
+acceleration = 60.0
 
 [sub_resource type="BTAction" id="BTAction_dqdc3"]
 script = ExtResource("11_4wwe8")
@@ -125,7 +125,7 @@ poi_node_path = NodePath("FountainZoomies/marker2")
 [sub_resource type="BTAction" id="BTAction_fo6um"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
-acceleration = 40.0
+acceleration = 60.0
 
 [sub_resource type="BTAction" id="BTAction_arpqf"]
 script = ExtResource("11_4wwe8")
@@ -134,7 +134,7 @@ poi_node_path = NodePath("FountainZoomies/marker3")
 [sub_resource type="BTAction" id="BTAction_aggau"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
-acceleration = 40.0
+acceleration = 60.0
 
 [sub_resource type="BTAction" id="BTAction_bq610"]
 script = ExtResource("11_4wwe8")
@@ -143,7 +143,7 @@ poi_node_path = NodePath("FountainZoomies/marker4")
 [sub_resource type="BTAction" id="BTAction_eowps"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
-acceleration = 40.0
+acceleration = 60.0
 
 [sub_resource type="BTAction" id="BTAction_n2v3p"]
 script = ExtResource("11_4wwe8")
@@ -152,7 +152,7 @@ poi_node_path = NodePath("FountainZoomies/marker5")
 [sub_resource type="BTAction" id="BTAction_j16be"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
-acceleration = 40.0
+acceleration = 60.0
 
 [sub_resource type="BTAction" id="BTAction_juxno"]
 script = ExtResource("11_4wwe8")
@@ -161,7 +161,7 @@ poi_node_path = NodePath("FountainZoomies/marker6")
 [sub_resource type="BTAction" id="BTAction_xjlgd"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
-acceleration = 40.0
+acceleration = 60.0
 
 [sub_resource type="BTAction" id="BTAction_dj35w"]
 script = ExtResource("11_4wwe8")
@@ -170,7 +170,7 @@ poi_node_path = NodePath("FountainZoomies/marker7")
 [sub_resource type="BTAction" id="BTAction_b6qgo"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
-acceleration = 40.0
+acceleration = 60.0
 
 [sub_resource type="BTAction" id="BTAction_w5pkr"]
 script = ExtResource("11_4wwe8")
@@ -179,7 +179,7 @@ poi_node_path = NodePath("FountainZoomies/marker8")
 [sub_resource type="BTAction" id="BTAction_w5agk"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
-acceleration = 40.0
+acceleration = 60.0
 
 [sub_resource type="BTAction" id="BTAction_n5fkj"]
 script = ExtResource("11_4wwe8")
@@ -188,7 +188,7 @@ poi_node_path = NodePath("FountainZoomies/marker")
 [sub_resource type="BTAction" id="BTAction_m5cqj"]
 script = ExtResource("1_eokfh")
 tolerance = 0.5
-acceleration = 40.0
+acceleration = 60.0
 
 [sub_resource type="BTSequence" id="BTSequence_78d7v"]
 custom_name = "zoomies"
