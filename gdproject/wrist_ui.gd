@@ -3,16 +3,23 @@ extends MarginContainer
 @onready var height_button: CheckButton = $GContainer/HBoxContainer/CheckButton
 @onready var height_label: Label = $GContainer/HBoxContainer/HeightLabel
 @onready var height_slider: Slider  = $GContainer/HeightSlider
+@onready var quality_slider: Slider = $GContainer/HBoxContainer2/QualitySlider
+@onready var fps_label: Label = $GContainer/HBoxContainer3/LabelFPS
 
 
 func _ready() -> void:
-    $GContainer/QuitButton.connect("button_up", self.quit)
+    $GContainer/HBoxContainer3/QuitButton.connect("button_up", self.quit)
     height_slider.value_changed.connect(height_changed)
     height_button.toggled.connect(override_height_toggled)
+    quality_slider.value_changed.connect(quality_changed)
 
 
 func quit() -> void:
     get_tree().quit()
+
+
+func _process(_delta: float) -> void:
+    fps_label.text = "%0.1f fps" % Performance.get_monitor(Performance.TIME_FPS)
 
 
 func height_changed(value: float) -> void:
@@ -28,3 +35,33 @@ func override_height_toggled(on: bool) -> void:
     else:
         var body: XRToolsPlayerBody = XRHelpers.get_xr_origin(self).get_node("PlayerBody")
         body.override_player_height("doggo", -1.0)
+
+
+func quality_changed(value: float) -> void:
+    var viewport: Viewport = XRHelpers.get_xr_origin(self).get_viewport()
+    var quality: = int(value)
+    match quality:
+        0:
+            viewport.vrs_mode = Viewport.VRS_XR
+            viewport.msaa_3d = Viewport.MSAA_DISABLED
+            viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+        1:
+            viewport.vrs_mode = Viewport.VRS_XR
+            viewport.msaa_3d = Viewport.MSAA_2X
+            viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+        2:
+            viewport.vrs_mode = Viewport.VRS_DISABLED
+            viewport.msaa_3d = Viewport.MSAA_DISABLED
+            viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
+        3:
+            viewport.vrs_mode = Viewport.VRS_DISABLED
+            viewport.msaa_3d = Viewport.MSAA_2X
+            viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+        4:
+            viewport.vrs_mode = Viewport.VRS_DISABLED
+            viewport.msaa_3d = Viewport.MSAA_4X
+            viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+
+    print("VRS %s" % viewport.vrs_mode)
+    print("MSAA %s" % viewport.msaa_3d)
+    print("SSAA %s" % viewport.screen_space_aa)
