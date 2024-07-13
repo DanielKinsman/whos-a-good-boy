@@ -80,7 +80,6 @@ script = ExtResource("4_cs5md")
 
 [sub_resource type="BTRandomWait" id="BTRandomWait_h4pix"]
 min_duration = 0.0
-max_duration = 3.0
 
 [sub_resource type="BTAction" id="BTAction_nukqj"]
 script = ExtResource("4_5y1qy")
