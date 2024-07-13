@@ -39,6 +39,7 @@ var is_being_pet: bool:
 @onready var audio_feet: AudioStreamPlayer3D = $AudioStreamPlayer3DFeet
 @onready var audio_bark: AudioStreamPlayer3D = $AudioStreamPlayer3DBark
 @onready var audio_growl: AudioStreamPlayer3D = $AudioStreamPlayer3DGrowl
+@onready var dropped_voluntarily := false
 
 
 func _ready() -> void:
@@ -104,11 +105,15 @@ func picked_up(pickable: XRToolsPickable) -> void:
     mouth_snap_zone.enabled = true
     audio_pant.stop()
     audio_growl.play()
+    dropped_voluntarily = false
 
 
 func dropped() -> void:
     self.has_dropped.emit()
     mouth_snap_zone.enabled = false
+    if not dropped_voluntarily:
+        audio_pant.stop()
+        audio_growl.play()
 
 
 func orient() -> void:
