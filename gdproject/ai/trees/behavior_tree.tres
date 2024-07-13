@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=64 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=63 format=3 uid="uid://cbcval5mrgh05"]
 
 [ext_resource type="Script" path="res://ai/tasks/move_target_follow_human_held_object.gd" id="1_3iueq"]
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
@@ -103,11 +103,8 @@ script = ExtResource("1_eokfh")
 tolerance = 5.0
 acceleration = 20.0
 
-[sub_resource type="BTWait" id="BTWait_bh4xb"]
-duration = 3.0
-
 [sub_resource type="BTSequence" id="BTSequence_qho0y"]
-children = [SubResource("BTAction_h87ui"), SubResource("BTAction_hbosg"), SubResource("BTWait_bh4xb")]
+children = [SubResource("BTAction_h87ui"), SubResource("BTAction_hbosg")]
 
 [sub_resource type="BTAction" id="BTAction_rac02"]
 script = ExtResource("11_4wwe8")
