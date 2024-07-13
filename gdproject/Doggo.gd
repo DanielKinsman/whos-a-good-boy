@@ -16,6 +16,8 @@ const MOUTH_BONE := &"L_mouth_corner_jnt.97_97"
 
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var is_being_pet: bool:
+    get: return petting_left or petting_right
 
 
 @onready var move_target: Node3D = null
@@ -70,7 +72,7 @@ func animate() -> void:
     var speed := velocity.length()
     animation.set("parameters/TimeScaleRun/scale", max(0.01, speed) / 5.0)  # TODO remove magic numbers
 
-    var blend_target := 1.0 if petting_left or petting_right else 0.0
+    var blend_target := 1.0 if is_being_pet else 0.0
     var blend_current: float = animation.get("parameters/Blendpat/blend_amount")
     animation.set("parameters/Blendpat/blend_amount", lerpf(blend_current, blend_target, 0.1))
 

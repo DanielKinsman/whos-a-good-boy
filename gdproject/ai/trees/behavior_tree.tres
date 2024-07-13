@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=60 format=3 uid="uid://cbcval5mrgh05"]
+[gd_resource type="BehaviorTree" load_steps=64 format=3 uid="uid://cbcval5mrgh05"]
 
 [ext_resource type="Script" path="res://ai/tasks/move_target_follow_human_held_object.gd" id="1_3iueq"]
 [ext_resource type="Script" path="res://ai/tasks/move_towards.gd" id="1_eokfh"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://ai/tasks/pickup_object.gd" id="4_q5in7"]
 [ext_resource type="Script" path="res://ai/tasks/clear_thrown_objects.gd" id="10_3ocfg"]
 [ext_resource type="Script" path="res://ai/tasks/move_target_poi.gd" id="11_4wwe8"]
+[ext_resource type="Script" path="res://ai/tasks/is_being_petted.gd" id="11_x2mbd"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_porc0"]
 
@@ -88,6 +89,13 @@ script = ExtResource("4_5y1qy")
 custom_name = "fetch"
 children = [SubResource("BTAction_yo603"), SubResource("BTRandomWait_ofivj"), SubResource("BTSelector_ruk3d"), SubResource("BTAction_7j5r6"), SubResource("BTAction_66wj3"), SubResource("BTRandomWait_hh22k"), SubResource("BTAction_n7cm5"), SubResource("BTAction_djlv8"), SubResource("BTAction_ap4jl"), SubResource("BTRandomWait_h4pix"), SubResource("BTAction_nukqj")]
 
+[sub_resource type="BTAction" id="BTAction_y0nyh"]
+script = ExtResource("11_x2mbd")
+
+[sub_resource type="BTSequence" id="BTSequence_788xp"]
+custom_name = "EnjoyPetting"
+children = [SubResource("BTAction_y0nyh")]
+
 [sub_resource type="BTAction" id="BTAction_h87ui"]
 script = ExtResource("3_b1u84")
 
@@ -96,8 +104,11 @@ script = ExtResource("1_eokfh")
 tolerance = 5.0
 acceleration = 20.0
 
+[sub_resource type="BTWait" id="BTWait_bh4xb"]
+duration = 3.0
+
 [sub_resource type="BTSequence" id="BTSequence_qho0y"]
-children = [SubResource("BTAction_h87ui"), SubResource("BTAction_hbosg")]
+children = [SubResource("BTAction_h87ui"), SubResource("BTAction_hbosg"), SubResource("BTWait_bh4xb")]
 
 [sub_resource type="BTAction" id="BTAction_rac02"]
 script = ExtResource("11_4wwe8")
@@ -190,7 +201,7 @@ abort_on_failure = true
 children = [SubResource("BTSequence_78d7v")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_xy5jr"]
-duration = 45.0
+duration = 60.0
 start_cooled = true
 children = [SubResource("BTRepeat_gcwqr")]
 
@@ -198,7 +209,7 @@ children = [SubResource("BTRepeat_gcwqr")]
 children = [SubResource("BTSequence_qho0y"), SubResource("BTCooldown_xy5jr")]
 
 [sub_resource type="BTSelector" id="BTSelector_rwknl"]
-children = [SubResource("BTSequence_l52av"), SubResource("BTSequence_a6iiw"), SubResource("BTRandomSelector_n7di1")]
+children = [SubResource("BTSequence_l52av"), SubResource("BTSequence_a6iiw"), SubResource("BTSequence_788xp"), SubResource("BTRandomSelector_n7di1")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_porc0")
