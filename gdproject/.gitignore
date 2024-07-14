@@ -14,11 +14,4 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
-# add on binaries
-addons/godot-jolt/android
-addons/godot-jolt/ios
-addons/godot-jolt/linux
-addons/godot-jolt/macos
-addons/godot-jolt/windows
-addons/limboai/bin
-addons/limboai/icons
+android
