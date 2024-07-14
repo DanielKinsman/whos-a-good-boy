@@ -80,4 +80,5 @@ teleport_button_action = "ax_button"
 rotation_action = ""
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("8_3b6xx")]
+collision_mask = 1019
 player_calibrate_height = false
