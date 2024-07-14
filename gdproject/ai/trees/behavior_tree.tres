@@ -240,7 +240,7 @@ time_limit = 20.0
 children = [SubResource("BTRandomSelector_6toks")]
 
 [sub_resource type="BTCooldown" id="BTCooldown_xy5jr"]
-duration = 90.0
+duration = 60.0
 start_cooled = true
 children = [SubResource("BTTimeLimit_vio2s")]
 
