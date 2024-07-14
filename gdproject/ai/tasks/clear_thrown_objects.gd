@@ -12,7 +12,6 @@ func _enter() -> void:
 
 func _tick(_delta: float) -> Status:
     ag.thrown_object = null
-    ag.held_objects.clear()
     dog.move_target = null
     dog.orient_target = null
     return SUCCESS
