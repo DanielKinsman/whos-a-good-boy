@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://baeinex62fdlt"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_2gjip"]
+[ext_resource type="PackedScene" uid="uid://dqcj0idu0q4pc" path="res://credits.tscn" id="2_6a703"]
+
+[node name="Credits3D" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_2gjip")]
+scene = ExtResource("2_6a703")
+viewport_size = Vector2(600, 500)
+update_mode = 2
+transparent = 0
+unshaded = true
+scene_properties_keys = PackedStringArray()

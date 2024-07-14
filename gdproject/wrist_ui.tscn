@@ -56,6 +56,10 @@ text = "Quality"
 [node name="HBoxContainer3" type="HBoxContainer" parent="GContainer"]
 layout_mode = 2
 
+[node name="CreditsButton" type="Button" parent="GContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Credits"
+
 [node name="QuitButton" type="Button" parent="GContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3

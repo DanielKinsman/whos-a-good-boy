@@ -11,11 +11,8 @@ splash_screen = ExtResource("2_n75bt")
 
 [node name="Label3D" type="Label3D" parent="LoadingScreen" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.09232, -4.07943)
-text = "Programming by Daniel Kinsman (copper-tunic.itch.io)
-Art and Animation by Leocavesoul (leoscavesoul.itch.io)
-Music Composition by Chaz Cisneros (ethanchazscoring.com)
+text = "Programmer - Daniel Kinsman - copper-tunic.itch.io
 
-See website for additional asset credits and attributions
+Artist and Animator - Leocavesoul - leoscavesoul.itch.io
 
-
-"
+Composer - Chaz Cisneros - https://www.ethanchazscoring.com"

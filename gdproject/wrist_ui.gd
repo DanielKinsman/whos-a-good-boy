@@ -1,5 +1,9 @@
 extends MarginContainer
 
+
+signal hit_credits()
+
+
 @onready var height_button: CheckButton = $GContainer/HBoxContainer/CheckButton
 @onready var height_label: Label = $GContainer/HBoxContainer/HeightLabel
 @onready var height_slider: Slider  = $GContainer/HeightSlider
@@ -9,6 +13,7 @@ extends MarginContainer
 
 func _ready() -> void:
     $GContainer/HBoxContainer3/QuitButton.connect("button_up", self.quit)
+    $GContainer/HBoxContainer3/CreditsButton.connect("pressed", show_credits)
     height_slider.value_changed.connect(height_changed)
     height_button.toggled.connect(override_height_toggled)
     quality_slider.value_changed.connect(quality_changed)
@@ -65,3 +70,18 @@ func quality_changed(value: float) -> void:
     print("VRS %s" % viewport.vrs_mode)
     print("MSAA %s" % viewport.msaa_3d)
     print("SSAA %s" % viewport.screen_space_aa)
+
+
+func show_credits() -> void:
+    # more hax
+    var wrist_ui: Node3D = XRTools.find_xr_ancestor(self, "Viewport2Din3D")
+    if not is_instance_valid(wrist_ui):
+        return
+
+    var credits: Node3D = wrist_ui.find_child("Credits3D")
+    if not is_instance_valid(credits):
+        return
+
+    credits.visible = true
+    await get_tree().create_timer(10.0).timeout
+    credits.visible = false
