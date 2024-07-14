@@ -209,6 +209,7 @@ abort_on_failure = true
 children = [SubResource("BTSequence_78d7v")]
 
 [sub_resource type="BTProbability" id="BTProbability_etshg"]
+run_chance = 0.66
 children = [SubResource("BTRepeat_gcwqr")]
 
 [sub_resource type="BTAction" id="BTAction_q1eou"]
