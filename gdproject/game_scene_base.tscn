@@ -33,6 +33,7 @@ unshaded = true
 scene_properties_keys = PackedStringArray("wrist_ui.gd")
 
 [node name="Credits3D" parent="XROrigin3D/LeftHand/CollisionHandLeft/Viewport2Din3D" index="3" instance=ExtResource("12_qv2i5")]
+process_mode = 4
 transform = Transform3D(-4.37114e-08, 3.59989e-21, -1, -1, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1.91069e-15, 2.10313, -0.0301059, 0.0422168)
 visible = false
 

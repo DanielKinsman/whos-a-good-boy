@@ -9,6 +9,7 @@
 scene = ExtResource("2_6a703")
 viewport_size = Vector2(600, 500)
 update_mode = 2
+input_keyboard = false
 transparent = 0
 unshaded = true
 scene_properties_keys = PackedStringArray()

@@ -83,5 +83,7 @@ func show_credits() -> void:
         return
 
     credits.visible = true
+    credits.process_mode = Node.PROCESS_MODE_INHERIT
     await get_tree().create_timer(10.0).timeout
     credits.visible = false
+    credits.process_mode = Node.PROCESS_MODE_DISABLED
