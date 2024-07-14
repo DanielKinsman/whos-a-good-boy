@@ -6,9 +6,13 @@ extends Node3D
 @onready var sticks: Node3D = $Sticks
 @onready var thrown_object: XRToolsPickable = null
 @onready var held_objects: Array[XRToolsPickable] = []
+@onready var sun: DirectionalLight3D = $DirectionalLight3D
 
 
 func _ready() -> void:
+    if OS.get_name() == "Android":
+        sun.light_energy = 0.25  # try to match the lighting from mobile renderer in glcompat renderer
+
     dog.has_picked_up.connect(self.dog_picked_up)
     for s: XRToolsPickable in sticks.get_children():
         s.dropped.connect(self.pickable_dropped)
