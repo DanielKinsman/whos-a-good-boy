@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Who's a good boy?"
+config/name="Who's a good boy"
 config/description="A game about a dog"
 config/version="1.0.3"
 run/main_scene="res://main.tscn"
