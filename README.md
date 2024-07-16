@@ -5,5 +5,7 @@ Made for the [july 2024 godot xr game jam](https://itch.io/jam/godot-xr-game-jam
 
 Read the [credits file](./gdproject/credits.md)
 
+The cannonical repository for this project is https://gitlab.com/DanielKinsman/whos-a-good-boy
+
 ## Building
 If you are exporting it, be sure to add "credits.md" to the resources in the export preset.
