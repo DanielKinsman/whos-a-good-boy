@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1ekjb7glbpuy"]
+[gd_scene load_steps=5 format=3 uid="uid://d1ekjb7glbpuy"]
 
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_2w4bn"]
 [ext_resource type="Script" path="res://floating_menu.gd" id="1_r3rqa"]
 [ext_resource type="PackedScene" uid="uid://c1yyqe3y3aunl" path="res://menu.tscn" id="3_lsm15"]
+[ext_resource type="Material" uid="uid://bxemaxg6h8dmx" path="res://floating_menu_material.tres" id="4_ap063"]
 
 [node name="FloatingMenu" type="Node3D"]
 top_level = true
@@ -13,6 +14,7 @@ collision_layer = 5242880
 scene = ExtResource("3_lsm15")
 viewport_size = Vector2(796, 530)
 update_mode = 2
+material = ExtResource("4_ap063")
 transparent = 2
 unshaded = true
 scene_properties_keys = PackedStringArray()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxqrr03hnsrb2"]
+[gd_scene load_steps=19 format=3 uid="uid://cxqrr03hnsrb2"]
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_2fsc6"]
 [ext_resource type="Script" path="res://game_scene_base.gd" id="2_f1ytx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="5_rcy6e"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_stnsb"]
 [ext_resource type="PackedScene" uid="uid://bsruoqtb6cvp5" path="res://wrist_ui.tscn" id="6_2t3fy"]
+[ext_resource type="Material" uid="uid://bxemaxg6h8dmx" path="res://floating_menu_material.tres" id="7_4rlm4"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="7_we6au"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_3b6xx"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="8_j7d1k"]
@@ -34,6 +35,7 @@ collision_layer = 5242880
 scene = ExtResource("6_2t3fy")
 viewport_size = Vector2(360, 167)
 update_mode = 2
+material = ExtResource("7_4rlm4")
 transparent = 2
 unshaded = true
 scene_properties_keys = PackedStringArray("wrist_ui.gd")
