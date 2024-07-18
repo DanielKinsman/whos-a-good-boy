@@ -1,4 +1,5 @@
 @tool
+class_name XRToolsViewport2DIn3D
 extends Node3D
 
 
