@@ -5,11 +5,11 @@ extends Container
 signal menu_requested()
 
 
-@onready var height_button: CheckButton = $GContainer/HBoxContainer/CheckButton
-@onready var height_label: Label = $GContainer/HBoxContainer/HeightLabel
-@onready var height_slider: Slider  = $GContainer/HeightSlider
-@onready var menu_button: Button = $GContainer/HBoxContainer3/MenuButton
-@onready var quit_button: Button = $GContainer/HBoxContainer3/QuitButton
+@onready var height_button: CheckButton = $MarginContainer/GContainer/HBoxContainer/CheckButton
+@onready var height_label: Label = $MarginContainer/GContainer/HBoxContainer/HeightLabel
+@onready var height_slider: Slider  = $MarginContainer/GContainer/HeightSlider
+@onready var menu_button: Button = $MarginContainer/GContainer/HBoxContainer3/MenuButton
+@onready var quit_button: Button = $MarginContainer/GContainer/HBoxContainer3/QuitButton
 
 
 func _ready() -> void:

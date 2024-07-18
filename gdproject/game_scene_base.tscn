@@ -28,11 +28,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.206941, -3.33176)
 collision_mask = 262171
 
 [node name="Viewport2Din3D" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("5_stnsb")]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.0301059, -0.0422168, 0.229782)
-screen_size = Vector2(0.1, 0.04)
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.0301059, -0.0422168, 0.282372)
+screen_size = Vector2(0.2, 0.08)
 collision_layer = 5242880
 scene = ExtResource("6_2t3fy")
-viewport_size = Vector2(330, 127)
+viewport_size = Vector2(360, 167)
 update_mode = 2
 transparent = 2
 unshaded = true
