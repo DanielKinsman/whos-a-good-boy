@@ -1,3 +1,4 @@
+class_name WristUI
 extends MarginContainer
 
 
@@ -9,8 +10,6 @@ signal menu_requested()
 @onready var height_slider: Slider  = $GContainer/HeightSlider
 @onready var menu_button: Button = $GContainer/HBoxContainer3/MenuButton
 @onready var quit_button: Button = $GContainer/HBoxContainer3/QuitButton
-@onready var quality_slider: Slider = $GContainer/HBoxContainer2/QualitySlider
-@onready var fps_label: Label = $GContainer/HBoxContainer3/LabelFPS
 
 
 func _ready() -> void:
