@@ -2,16 +2,19 @@
 
 [ext_resource type="Script" path="res://wrist_ui.gd" id="1_jcibm"]
 
-[node name="WristUI" type="MarginContainer"]
-offset_right = 300.0
-offset_bottom = 200.0
+[node name="WristUI" type="PanelContainer"]
+offset_right = 330.0
+offset_bottom = 119.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_jcibm")
 
+[node name="Panel" type="TabContainer" parent="."]
+layout_mode = 2
+
 [node name="GContainer" type="GridContainer" parent="."]
 layout_mode = 2
-theme_override_constants/v_separation = 20
+size_flags_vertical = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GContainer"]
 layout_mode = 2
@@ -31,6 +34,9 @@ max_value = 2.5
 step = 0.05
 value = 1.0
 editable = false
+
+[node name="HSeparator" type="HSeparator" parent="GContainer"]
+layout_mode = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="GContainer"]
 layout_mode = 2

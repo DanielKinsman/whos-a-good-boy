@@ -1,5 +1,5 @@
 class_name WristUI
-extends MarginContainer
+extends Container
 
 
 signal menu_requested()

@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://sg8uj4vqydh6" path="res://addons/coppers-common-menus/xr/xr_graphics_options_ui.tscn" id="2_35vq3"]
 
 [node name="MarginContainer" type="MarginContainer"]
-offset_right = 550.0
-offset_bottom = 271.0
+offset_right = 600.0
+offset_bottom = 400.0
 size_flags_horizontal = 2
 size_flags_vertical = 3
 
@@ -14,7 +14,9 @@ layout_mode = 2
 alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="Menu"]
+custom_minimum_size = Vector2(756, 422)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Locomotion" type="MarginContainer" parent="Menu/TabContainer"]
 layout_mode = 2
