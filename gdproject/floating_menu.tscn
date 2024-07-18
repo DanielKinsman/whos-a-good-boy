@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_2w4bn"]
 [ext_resource type="Script" path="res://floating_menu.gd" id="1_r3rqa"]
-[ext_resource type="PackedScene" uid="uid://bsruoqtb6cvp5" path="res://wrist_ui.tscn" id="2_fxrpi"]
+[ext_resource type="PackedScene" uid="uid://c1yyqe3y3aunl" path="res://menu.tscn" id="3_lsm15"]
 
 [node name="FloatingMenu" type="Node3D"]
 top_level = true
@@ -10,7 +10,8 @@ script = ExtResource("1_r3rqa")
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("1_2w4bn")]
 collision_layer = 5242880
-scene = ExtResource("2_fxrpi")
+scene = ExtResource("3_lsm15")
+viewport_size = Vector2(600, 400)
 update_mode = 2
 unshaded = true
-scene_properties_keys = PackedStringArray("wrist_ui.gd")
+scene_properties_keys = PackedStringArray()

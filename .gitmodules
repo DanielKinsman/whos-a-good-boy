@@ -1,0 +1,3 @@
+[submodule "gdproject/addons/coppers-common-menus"]
+	path = gdproject/addons/coppers-common-menus
+	url = git@gitlab.com:DanielKinsman/coppers-common-menus.git

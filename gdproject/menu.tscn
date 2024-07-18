@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1yyqe3y3aunl"]
+
+[ext_resource type="PackedScene" uid="uid://dronxxvt48j4p" path="res://addons/coppers-common-menus/xr/xr_locomotion_options_ui.tscn" id="1_7eicf"]
+[ext_resource type="PackedScene" uid="uid://sg8uj4vqydh6" path="res://addons/coppers-common-menus/xr/xr_graphics_options_ui.tscn" id="2_35vq3"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 550.0
+offset_bottom = 271.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="Locomotion" type="MarginContainer" parent="Menu/TabContainer"]
+layout_mode = 2
+
+[node name="XrLocomotionOptionsUI" parent="Menu/TabContainer/Locomotion" instance=ExtResource("1_7eicf")]
+layout_mode = 2
+
+[node name="Graphics" type="MarginContainer" parent="Menu/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="XRGraphicsOptionsUI" parent="Menu/TabContainer/Graphics" instance=ExtResource("2_35vq3")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Menu"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="ButtonCloseMenu" type="Button" parent="Menu/HBoxContainer"]
+layout_mode = 2
+text = "Close Menu"
+
+[node name="ButtonExitGame" type="Button" parent="Menu/HBoxContainer"]
+layout_mode = 2
+text = "Exit Game"
