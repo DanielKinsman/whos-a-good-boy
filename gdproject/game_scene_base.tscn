@@ -39,6 +39,7 @@ unshaded = true
 scene_properties_keys = PackedStringArray("wrist_ui.gd")
 
 [node name="MovementDirect" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" instance=ExtResource("4_56n87")]
+strafe = true
 
 [node name="FunctionPointer" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" instance=ExtResource("10_0a2lu")]
 show_laser = 2
@@ -55,11 +56,14 @@ hand_material_override = ExtResource("9_rp6my")
 [node name="FunctionPoseDetector" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="6" instance=ExtResource("9_qwcq2")]
 
 [node name="FunctionTeleport" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="7" instance=ExtResource("10_aj20d")]
+enabled = false
+teleport_button_action = "primary"
 
 [node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("5_rcy6e")]
 collision_mask = 262171
 
 [node name="MovementTurn" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("7_we6au")]
+step_turn_angle = 45.0
 
 [node name="FunctionPointer" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("10_0a2lu")]
 show_laser = 2
@@ -74,10 +78,6 @@ impulse_factor = 2.0
 hand_material_override = ExtResource("9_rp6my")
 
 [node name="FunctionPoseDetector" parent="XROrigin3D/RightHand/CollisionHandRight" index="5" instance=ExtResource("9_qwcq2")]
-
-[node name="FunctionTeleport" parent="XROrigin3D/RightHand/CollisionHandRight" index="6" instance=ExtResource("10_aj20d")]
-teleport_button_action = "ax_button"
-rotation_action = ""
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("8_3b6xx")]
 collision_mask = 1019
