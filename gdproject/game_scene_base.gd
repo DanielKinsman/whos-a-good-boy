@@ -12,10 +12,12 @@ extends XRToolsSceneBase
 
 
 func _ready() -> void:
-    locomotion_ui = (menu.get_child(0) as XRToolsViewport2DIn3D).scene_node.find_child("XrLocomotionOptionsUI")
-    graphics_ui = (menu.get_child(0) as XRToolsViewport2DIn3D).scene_node.find_child("XRGraphicsOptionsUI")
+    var menu_control: Menu = (menu.get_child(0) as XRToolsViewport2DIn3D).scene_node
+    locomotion_ui = menu_control.find_child("XrLocomotionOptionsUI")
+    graphics_ui = menu_control.find_child("XRGraphicsOptionsUI")
 
     wrist_ui.menu_requested.connect(func() -> void: menu.show_menu())
+    menu_control.close_menu_requested.connect(func() -> void: menu.hide_menu())
     locomotion_ui.movement_method_changed.connect(_on_movement_changed)
     locomotion_ui.strafe_changed.connect(_on_strafe_changed)
     locomotion_ui.turn_method_changed.connect(_on_turn_method_changed)
