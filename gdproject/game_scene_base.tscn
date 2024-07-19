@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxqrr03hnsrb2"]
+[gd_scene load_steps=20 format=3 uid="uid://cxqrr03hnsrb2"]
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_2fsc6"]
 [ext_resource type="Script" path="res://game_scene_base.gd" id="2_f1ytx"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bft3xyxs31ci3" path="res://addons/godot-xr-tools/functions/function_pose_detector.tscn" id="9_qwcq2"]
 [ext_resource type="Material" uid="uid://2i62cc5a0hbn" path="res://hand_material.tres" id="9_rp6my"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="10_0a2lu"]
+[ext_resource type="Material" uid="uid://dwkilwm2rxrya" path="res://laser_material.tres" id="10_6rg8h"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="10_aj20d"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="11_4bnpw"]
 
@@ -46,6 +47,7 @@ strafe = true
 [node name="FunctionPointer" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" instance=ExtResource("10_0a2lu")]
 show_laser = 2
 laser_length = 1
+laser_material = ExtResource("10_6rg8h")
 target_radius = 0.001
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="4" instance=ExtResource("8_rhang")]
@@ -70,6 +72,7 @@ step_turn_angle = 45.0
 [node name="FunctionPointer" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("10_0a2lu")]
 show_laser = 2
 laser_length = 1
+laser_material = ExtResource("10_6rg8h")
 target_radius = 0.001
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" instance=ExtResource("8_rhang")]
