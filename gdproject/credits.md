@@ -27,3 +27,5 @@ Dog growl sound by Glitchedtones -- https://freesound.org/s/372535/ -- License: 
 Dog bark sound by abhisheky948 -- https://freesound.org/s/625497/ -- License: Creative Commons 0
 
 dog panting sound by keweldog -- https://freesound.org/s/181767/ -- License: Creative Commons 0
+
+"Quest 2 Controller Low Mid and High Poly" (https://skfb.ly/onPCK) by BlackCube is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

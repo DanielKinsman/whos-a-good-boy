@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1yyqe3y3aunl"]
+[gd_scene load_steps=7 format=3 uid="uid://c1yyqe3y3aunl"]
 
 [ext_resource type="PackedScene" uid="uid://dronxxvt48j4p" path="res://addons/coppers-common-menus/xr/xr_locomotion_options_ui.tscn" id="1_7eicf"]
 [ext_resource type="Script" path="res://menu.gd" id="1_div4s"]
 [ext_resource type="PackedScene" uid="uid://sg8uj4vqydh6" path="res://addons/coppers-common-menus/xr/xr_graphics_options_ui.tscn" id="2_35vq3"]
+[ext_resource type="Texture2D" uid="uid://cjp1qwqwj5cgy" path="res://assets/controls/instructions_direct.png" id="2_hol2o"]
+[ext_resource type="Texture2D" uid="uid://4x3tsy5nhhen" path="res://assets/controls/instructions_teleport.png" id="3_fsyaf"]
 [ext_resource type="Script" path="res://exit_button.gd" id="3_xxb68"]
 
 [node name="Menu" type="MarginContainer"]
@@ -21,17 +23,35 @@ custom_minimum_size = Vector2(756, 422)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Locomotion" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+[node name="Controls" type="MarginContainer" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
 
-[node name="XrLocomotionOptionsUI" parent="VBoxContainer/TabContainer/Locomotion" instance=ExtResource("1_7eicf")]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Controls"]
 layout_mode = 2
 
-[node name="Graphics" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+[node name="XrLocomotionOptionsUI" parent="VBoxContainer/TabContainer/Controls/VBoxContainer" instance=ExtResource("1_7eicf")]
+layout_mode = 2
+
+[node name="TextureRectDirectMove" type="TextureRect" parent="VBoxContainer/TabContainer/Controls/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("2_hol2o")
+expand_mode = 3
+
+[node name="TextureRectTeleport" type="TextureRect" parent="VBoxContainer/TabContainer/Controls/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("3_fsyaf")
+expand_mode = 3
+
+[node name="Graphics Options" type="MarginContainer" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="XRGraphicsOptionsUI" parent="VBoxContainer/TabContainer/Graphics" instance=ExtResource("2_35vq3")]
+[node name="XRGraphicsOptionsUI" parent="VBoxContainer/TabContainer/Graphics Options" instance=ExtResource("2_35vq3")]
 layout_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
