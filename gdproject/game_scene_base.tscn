@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxqrr03hnsrb2"]
+[gd_scene load_steps=21 format=3 uid="uid://cxqrr03hnsrb2"]
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_2fsc6"]
 [ext_resource type="Script" path="res://game_scene_base.gd" id="2_f1ytx"]
@@ -19,6 +19,7 @@
 [ext_resource type="Material" uid="uid://dwkilwm2rxrya" path="res://laser_material.tres" id="10_6rg8h"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="10_aj20d"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="11_4bnpw"]
+[ext_resource type="Script" path="res://function_pickup_grip_and_action.gd" id="12_2dixr"]
 
 [node name="GameSceneBase" instance=ExtResource("1_2fsc6")]
 script = ExtResource("2_f1ytx")
@@ -51,6 +52,7 @@ laser_material = ExtResource("10_6rg8h")
 target_radius = 0.001
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="4" instance=ExtResource("8_rhang")]
+script = ExtResource("12_2dixr")
 ranged_angle = 15.0
 impulse_factor = 2.0
 
@@ -76,6 +78,7 @@ laser_material = ExtResource("10_6rg8h")
 target_radius = 0.001
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" instance=ExtResource("8_rhang")]
+script = ExtResource("12_2dixr")
 ranged_angle = 15.0
 impulse_factor = 2.0
 
