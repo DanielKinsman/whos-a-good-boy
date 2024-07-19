@@ -24,8 +24,14 @@ func _ready() -> void:
 
 
 func _on_movement_changed(method: XRLocomotionOptionsUI.Movement) -> void:
-    movement_direct.enabled = method == XRLocomotionOptionsUI.Movement.DIRECT
-    movement_teleport.enabled = method == XRLocomotionOptionsUI.Movement.TELEPORT
+    if method == XRLocomotionOptionsUI.Movement.DIRECT:
+        movement_direct.enabled = true
+        movement_teleport.teleport_button_action = "ax_button"
+        movement_teleport.rotation_action = ""
+    else:
+        movement_direct.enabled = false
+        movement_teleport.teleport_button_action = "primary"
+        movement_teleport.rotation_action = "primary"
 
 
 func _on_strafe_changed(on: bool) -> void:
