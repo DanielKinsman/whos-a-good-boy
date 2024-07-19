@@ -17,6 +17,6 @@ update_mode = 2
 material = ExtResource("4_ap063")
 transparent = 2
 unshaded = true
-scene_properties_keys = PackedStringArray()
+scene_properties_keys = PackedStringArray("menu.gd")
 
 [node name="Timer" type="Timer" parent="."]
