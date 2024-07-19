@@ -1,17 +1,20 @@
 class_name TestEnvironment
 extends Node3D
 
+const MOBILE_ENVIRONMENT := preload("res://environment_mobile.tres")
 
 @onready var dog: Doggo = $Doggo
 @onready var sticks: Node3D = $Sticks
 @onready var thrown_object: XRToolsPickable = null
 @onready var held_objects: Array[XRToolsPickable] = []
 @onready var sun: DirectionalLight3D = $DirectionalLight3D
+@onready var environment: WorldEnvironment = $WorldEnvironment
 
 
 func _ready() -> void:
     if OS.get_name() == "Android":
         sun.light_energy = 0.25  # try to match the lighting from mobile renderer in glcompat renderer
+        environment.environment = MOBILE_ENVIRONMENT
 
     dog.has_picked_up.connect(self.dog_picked_up)
     for s: XRToolsPickable in sticks.get_children():
