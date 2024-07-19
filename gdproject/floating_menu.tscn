@@ -18,3 +18,5 @@ material = ExtResource("4_ap063")
 transparent = 2
 unshaded = true
 scene_properties_keys = PackedStringArray()
+
+[node name="Timer" type="Timer" parent="."]

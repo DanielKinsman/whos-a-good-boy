@@ -5,6 +5,7 @@ extends Node3D
 @onready var original_transform := Transform3D(self.transform)
 @onready var viewport: XRToolsViewport2DIn3D = $Viewport2Din3D
 @onready var camera: XRCamera3D
+@onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
@@ -13,10 +14,13 @@ func _ready() -> void:
     if not is_instance_valid(camera):
         camera = XRHelpers.get_xr_camera(self)
 
+    timer.timeout.connect(hide_if_far_from_camera)
+
 
 func hide_menu() -> void:
     self.hide()
     viewport.enabled = false
+    timer.stop()
 
 
 func show_menu() -> void:
@@ -30,3 +34,9 @@ func show_menu() -> void:
     self.rotate_object_local(Vector3.UP, PI)
     viewport.enabled = true
     self.show()
+    timer.start()
+
+
+func hide_if_far_from_camera() -> void:
+    if camera.global_position.distance_squared_to(self.global_position) > 25.0:
+        hide_menu()
