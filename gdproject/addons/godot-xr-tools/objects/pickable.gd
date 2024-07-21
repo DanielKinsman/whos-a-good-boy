@@ -36,6 +36,9 @@ signal action_released(pickable)
 # Signal emitted when the highlight state changes
 signal highlight_updated(pickable, enable)
 
+# Signal emmitted when something requests us to highlight
+signal highlight_requested(source, pickable)
+
 
 ## Method used to grab object at range
 enum RangedMethod {
@@ -195,7 +198,9 @@ func request_highlight(from : Node, on : bool = true) -> void:
 	if not from:
 		_highlight_requests.clear()
 	elif on:
-		_highlight_requests[from] = from
+		if not _highlight_requests.has(from):
+			_highlight_requests[from] = from
+			highlight_requested.emit(from, self)
 	else:
 		_highlight_requests.erase(from)
 
