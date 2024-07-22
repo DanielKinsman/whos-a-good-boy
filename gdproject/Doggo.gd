@@ -185,7 +185,7 @@ func vibrate() -> void:
 
 static func vibrate_hand(hand: XRToolsFunctionPickup, rumbler: XRToolsRumbler, petting: bool) -> void:
     if petting:
-        rumbler.event.magnitude = clampf(hand._velocity_averager.linear_velocity().length() / 1.0, 0.0, 1.0)
+        rumbler.event.magnitude = clampf(hand._velocity_averager.linear_velocity().length() * 1.5, 0.0, 1.0)
         rumbler.rumble_hand(hand)
     else:
         rumbler.cancel_hand(hand)
