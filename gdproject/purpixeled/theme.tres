@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dvhoqkhi2ayo7" path="res://purpixeled/memory--checkbox-marked.png" id="1_0vuus"]
 [ext_resource type="Texture2D" uid="uid://b7i7vlwecu2n" path="res://purpixeled/memory--toggle-switch-on.png" id="1_2vx0j"]
-[ext_resource type="FontFile" uid="uid://cn386b1suqx1w" path="res://purpixeled/hello-world.ttf" id="1_pjscf"]
 [ext_resource type="Texture2D" uid="uid://dspqcqpmhmudl" path="res://purpixeled/memory--checkbox-blank.png" id="2_or8t5"]
 [ext_resource type="Texture2D" uid="uid://d32dtecg6fwee" path="res://purpixeled/memory--toggle-switch-off.png" id="2_r5a0s"]
 [ext_resource type="Texture2D" uid="uid://cvba2cxu0ftak" path="res://purpixeled/memory--dot-hexagon-fill.png" id="5_8gdg6"]
 [ext_resource type="Texture2D" uid="uid://byb2wq6vokjdf" path="res://purpixeled/memory--close-outline.png" id="6_horaf"]
 [ext_resource type="Texture2D" uid="uid://073g3lftwkvy" path="res://purpixeled/memory--dot-hexagon.png" id="6_vc775"]
 [ext_resource type="Texture2D" uid="uid://baggj1qprw261" path="res://purpixeled/memory--menu-up-down.png" id="8_ktvqx"]
+[ext_resource type="FontFile" uid="uid://dpou4emm1apbs" path="res://purpixeled/URWGothic-Book.otf" id="9_xkucp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdg5h"]
 bg_color = Color(0.313943, 0.143354, 0.508802, 1)
@@ -117,7 +117,7 @@ thickness = 10
 vertical = true
 
 [resource]
-default_font = ExtResource("1_pjscf")
+default_font = ExtResource("9_xkucp")
 default_font_size = 20
 Button/styles/hover = SubResource("StyleBoxFlat_xdg5h")
 Button/styles/normal = SubResource("StyleBoxFlat_u2i5b")

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cn386b1suqx1w"
-path="res://.godot/imported/hello-world.ttf-f47a67e94c916fb7c430fd602229e391.fontdata"
+uid="uid://dpou4emm1apbs"
+path="res://.godot/imported/URWGothic-Book.otf-158cd443b713670e673d1e08eb3be449.fontdata"
 
 [deps]
 
-source_file="res://purpixeled/hello-world.ttf"
-dest_files=["res://.godot/imported/hello-world.ttf-f47a67e94c916fb7c430fd602229e391.fontdata"]
+source_file="res://purpixeled/URWGothic-Book.otf"
+dest_files=["res://.godot/imported/URWGothic-Book.otf-158cd443b713670e673d1e08eb3be449.fontdata"]
 
 [params]
 
