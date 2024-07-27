@@ -32,6 +32,7 @@ layout_mode = 2
 
 [node name="XrLocomotionOptionsUI" parent="VBoxContainer/TabContainer/Controls/VBoxContainer" instance=ExtResource("1_7eicf")]
 layout_mode = 2
+snap_degrees = 30.0
 
 [node name="TextureRectDirectMove" type="TextureRect" parent="VBoxContainer/TabContainer/Controls/VBoxContainer"]
 layout_mode = 2
@@ -60,9 +61,6 @@ visible = false
 layout_mode = 2
 
 [node name="Credits" parent="VBoxContainer/TabContainer/Credits" instance=ExtResource("6_uffiv")]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]

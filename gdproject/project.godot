@@ -62,7 +62,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 [gui]
 
-theme/custom="res://theme/ui_theme.tres"
+theme/custom="res://purpixeled/theme.tres"
 
 [layer_names]
 

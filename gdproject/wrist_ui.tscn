@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://wrist_ui.gd" id="1_jcibm"]
 
 [node name="WristUI" type="PanelContainer"]
-offset_right = 330.0
-offset_bottom = 119.0
+offset_right = 256.0
+offset_bottom = 121.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_jcibm")
