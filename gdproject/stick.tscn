@@ -48,7 +48,7 @@ script = ExtResource("14_jaof8")
 magnitude = 0.3
 active_during_pause = false
 indefinite = false
-duration_ms = 100
+duration_ms = 10
 
 [node name="Stick" instance=ExtResource("1_jx0gd")]
 collision_mask = 7
